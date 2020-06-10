@@ -1,4 +1,4 @@
-[https://img.shields.io/badge/storybook-success](https://donald-knieriem-temple.github.io/theme-twenty/?path=/story/welcome--to-storybook) [![GitHub release]](https://img.shields.io/github/release/donald-knieriem-temple/theme-twenty.svg)](https://GitHub.com/donald-knieriem-temple/theme-twenty/releases/)
+[![Storybook](https://img.shields.io/badge/-storybook-success)](https://donald-knieriem-temple.github.io/theme-twenty/?path=/story/welcome--to-storybook) [![GitHub release](https://img.shields.io/github/package-json/v/donald-knieriem-temple/theme-twenty)](https://GitHub.com/donald-knieriem-temple/theme-twenty/releases/)
 
 This is a Wordpress Theme with built-in Storybook documentation
 

@@ -1,12 +1,12 @@
 {
-  "name": "upstatement/timber-starter-theme",
-  "description": "Starter theme to build a Timber theme",
+  "name": "STHMTwenty",
+  "description": "STHM 2020 Theme",
   "type":"wordpress-theme",
   "minimum-stability" : "stable",
   "authors": [
     {
-      "email": "jared@upstatement.com",
-      "name": "jarednova"
+      "email": "donald.knieriem@temple.edu",
+      "name": "donald-knieriem-temple"
     }  
   ],
   "repositories": [

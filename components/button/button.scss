@@ -1,0 +1,11 @@
+.uk-button.disabled, fieldset:disabled .uk-button {
+    pointer-events: none;
+
+}
+
+.uk-button-default.disabled, .uk-button-primary.disabled, .uk-button-secondary.disabled, .uk-button-danger.disabled
+{
+    background-color: transparent;
+    color: #999;
+    border-color: #e5e5e5;
+}

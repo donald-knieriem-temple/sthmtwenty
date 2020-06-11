@@ -1,0 +1,10 @@
+<ul uk-accordion>
+	{% for item in items %}
+	{% if open == loop.index %}
+			{% set itemOpen = true %}
+		{% else %}
+			{% set itemOpen = false %}
+	{% endif %}
+	{% include './accordion-item.twig' %}
+{% endfor %}
+</ul>

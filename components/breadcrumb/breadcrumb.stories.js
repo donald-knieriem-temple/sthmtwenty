@@ -11,7 +11,6 @@ import "../../src/scripts/uikit.min.js";
 import "../../src/styles/uikit/dist/css/uikit.min.css";
 
 storiesOf('Components|Breadcrumb', module)
-.addDecorator(withKnobs)
 .add('Default', () => 
 	accordion({
 		items: [

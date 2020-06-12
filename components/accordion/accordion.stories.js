@@ -29,4 +29,22 @@ storiesOf('Components|Accordion', module)
 				content: '<p>Item 3 content</p>'
 			}
 		]
-	}));
+	}))
+.add('First Open', () => 
+	accordion({
+		open: number('Open Item', 1),
+		items: [
+			{
+				title: 'Item 1',
+				content: '<p>Item 1 content</p>'
+			},
+			{
+				title: 'Item 2',
+				content: '<p>Item 2 content</p>'
+			},
+			{
+				title: 'Item 3',
+				content: '<p>Item 3 content</p>'
+			}
+		]
+	}))

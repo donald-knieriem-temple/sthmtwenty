@@ -1,0 +1,3 @@
+.uk-breadcrumb > :nth-child(n+2):not(.uk-first-column)::before {
+    content: "/";
+}

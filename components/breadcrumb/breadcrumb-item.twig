@@ -1,0 +1,7 @@
+<li {{ item.disabled ? 'class="uk-disabled"' : '' }}>
+	{% if item.active %}
+    	<span> {{ item.title }}</span>
+	{% else %}
+		<a {{ item.href ? 'href="' ~ item.href ~'"' : ''}}>{{ item.title }}</a>
+	{% endif %}
+</li>

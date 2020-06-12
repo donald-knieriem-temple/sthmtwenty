@@ -35,7 +35,8 @@ storiesOf('Components|Dropdown', module)
 			title: 'Item 3'
 		},
 		{
-			divider: true		},
+			divider: true
+		},
 		{
 			href: '#',
 			title: 'Item 4'

@@ -1,0 +1,9 @@
+
+<div class="{{ position|join(' ') }}">
+	<ul class="uk-dotnav">
+		{% for item in items %}	
+	    <li {% if item.active %}class="uk-active"{% endif %} {{ attributes }} {{ attributeIndex ? 
+	    attributeIndex ~ '="' ~ loop.index0 ~ '"'}}><a href="{{ href }}"></a></li>
+	   	{% endfor %}
+	</ul>
+</div>

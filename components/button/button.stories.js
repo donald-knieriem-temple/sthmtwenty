@@ -22,7 +22,6 @@ const button_types = {
 const b_type = select('Type', button_types, 'uk-button-default');
 
 storiesOf('Components|Button', module)
-.addDecorator(withKnobs)
 /*.addDecorator(withActions('click', 'click uk-button'))*/
 .add('Default', () => 
 	buttonTwig({

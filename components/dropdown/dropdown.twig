@@ -1,8 +1,10 @@
 {% set type = buttonType %}
 {% set label = buttonLabel %}
+
+{# insert a button directly before the dropdown element to toggle it #}
 {% include '../button/button.twig' %}
 
-<div uk-dropdown>
+<div uk-dropdown{{ click ? '="mode: click"' : ''}}>
     <ul class="uk-nav uk-dropdown-nav">
     	{% for item in items %}
         	<li class="{{ item.active ? 'uk-active' }} {{ item.divider ? 'uk-nav-divider' }} {{ item.navHeader ? 'uk-nav-header' }}">

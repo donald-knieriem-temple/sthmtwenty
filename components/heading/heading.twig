@@ -1,0 +1,29 @@
+{# For heading block. For regular headers, see typography #}
+{# {% if !level %}
+	{% set level = '1' %}
+{% endif %} #}
+{% set class='' %}
+{% if size %}
+	{% set class = class ~ ' ' ~ size %}
+{% endif %}
+{% if textAlign %}
+	{% set class = class ~ ' ' ~ textAlign %}
+{% endif %}
+{% if bullet %}
+	{% set class = class ~ ' uk-heading-bullet' %}
+{% endif %}
+{% if divider %}
+	{% set class = class ~ ' uk-heading-divider' %}
+{% endif %}
+{% if line %}
+	{% set class = class ~ ' uk-heading-line' %}
+{% endif %}
+<h{{ level}} class="{{class}}">
+
+{% if line %}
+	<span>{{text}}</span>
+{% else %}
+	{{text}}
+{% endif %}
+
+</h{{level}}>

@@ -3,18 +3,12 @@ import { storiesOf } from '@storybook/html';
 import { withActions } from '@storybook/addon-actions';
 import { array, boolean, button, color, date, select, withKnobs, text, number } from '@storybook/addon-knobs';
 
-import card from './card.twig'
+import icon from './icon.twig'
 
-import cardScss from './card.scss'
+import iconScss from './icon.scss'
 
 import "../../src/scripts/uikit.min.js";
 import "../../src/styles/uikit/dist/css/uikit.min.css";
-
-const types = {
-	Default: 'uk-card-default',
-	Primary: 'uk-card-primary',
-	Secondary: 'uk-card-secondary',
-};
 
 storiesOf('Components|Card', module)
 .addDecorator(story => `<div class="uk-child-width-1-3@s uk-grid-small uk-grid-match" uk-grid>

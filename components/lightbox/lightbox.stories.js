@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/html';
 import { withActions } from '@storybook/addon-actions';
 import { array, boolean, button, color, date, select, withKnobs, text, number } from '@storybook/addon-knobs';
 
-import card from './card.twig'
+import lightbox from './lightbox.twig'
 
-import cardScss from './card.scss'
+import lightboxScss from './lightbox.scss'
 
 import "../../src/scripts/uikit.min.js";
 import "../../src/styles/uikit/dist/css/uikit.min.css";

@@ -30,3 +30,13 @@ The page will reload if you make edits.
 	* Compiles SASS
 	* Minifies CSS and JS
 2. Builds static storybook for github pages in `docs/` directory
+
+
+## Notes
+
+### Development Process
+
+1. Use the `develop` branch for visual testing. 
+2. Chromatic will run automatically on commit.
+3. When you are ready to push a new version, create a pull request
+4. The Chromatic build must be approved for the pull request to succeed

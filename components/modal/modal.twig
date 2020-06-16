@@ -1,19 +1,21 @@
+{# Default Modal with Header, Body, Footer, and internal close 'x' button #}
 <div id="{{id}}" class="uk-flex-top" uk-modal>
-	<div class="uk-modal-dialog {{ width }} {{ vertical ? 'uk-margin-auto-vertical' : '' }}" uk-overflow-auto>
-		<button class="uk-modal-close-default" type="button" uk-close></button>
-		{% if header %}
+	<div class="uk-modal-dialog {{ width }} {{ vertical ? 'uk-margin-auto-vertical' }}" {{ closeOutside ? '' : 'uk-overflow-auto' }}>
+			<button class="{{ closeOutside ? 'uk-modal-close-outside' : 'uk-modal-close-default' }}" type="button" uk-close></button>
+		{% if header and title %}
 			<div class="uk-modal-header">
 		    	<h2 class="uk-modal-title">{{title}}</h2>
 		    </div>
-		{% else %}
+		    <div class="uk-modal-body">
+		{% elseif title %}
+			<div class="uk-modal-body">
 			<h2 class="uk-modal-title">{{title}}</h2>
 		{% endif %}
-    	<div class="uk-modal-body">
 		    {{body}}
 		</div>
 		{% if footer %}
-			<div class="uk-modal-footer {{footer-align}}">
-				{{footer.body}}
+			<div class="uk-modal-footer {{ footer.align }}">
+				{{ footer.body }}
 			</div>
 		{% endif %}
 	</div>

@@ -10,10 +10,10 @@ import modalScss from './modal.scss'
 import "../../src/scripts/uikit.min.js";
 import "../../src/styles/uikit/dist/css/uikit.min.css";
 
-const types = {
-	Default: 'uk-card-default',
-	Primary: 'uk-card-primary',
-	Secondary: 'uk-card-secondary',
+const footerAlign = {
+	Left: 'uk-text-left',
+	Center: 'uk-text-center',
+	Right: 'uk-text-right',
 };
 
 storiesOf('Components|Modal', module)
@@ -24,9 +24,31 @@ storiesOf('Components|Modal', module)
 .add('Default', () => 
 	modal({
 		id: 'modal-test',
-		title: 'Default', 
-		header: true,
+		title: 'Default',
+		closeOutside: boolean( 'Close Button Outside', false ), 
+		header: boolean( 'Header', true ),
 		body: '<p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipisicing elit.</p>',
-		footer: { align: 'uk-text-right', body: '<p>Footer Body</p>' },
-		vertical: true
-}));
+		vertical: boolean( 'Center Vertically', true )
+}))
+.add('With Footer', () => 
+	modal({
+		id: 'modal-test',
+		title: 'Default',
+		closeOutside: boolean( 'Close Button Outside', false ), 
+		header: boolean( 'Header', true ),
+		body: '<p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipisicing elit.</p>',
+		footer: { 
+			align: select('Footer Align', footerAlign, 'uk-text-right' ), 
+			body: '<p>Footer Body</p>' 
+		},
+		vertical: boolean( 'Center Vertically', true )
+}))
+.add('Close External', () => 
+	modal({
+		id: 'modal-test',
+		title: 'Default', 
+		closeOutside: boolean( 'Close Button Outside', true ),
+		header: boolean( 'Header', true ),
+		body: '<p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipisicing elit.</p>',
+		vertical: boolean( 'Center Vertically', true )
+}))

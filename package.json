@@ -14,6 +14,7 @@
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.10.2",
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "@storybook/addon-a11y": "^5.3.19",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-jest": "^5.3.19",

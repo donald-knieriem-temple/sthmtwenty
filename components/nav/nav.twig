@@ -1,0 +1,11 @@
+{% if items %}
+<ul class="uk-nav {{ classes | join(' ') }}">
+{% for item in items %}
+	<li class="{{ item.classes | join(' ') }}{{ item.current ? ' uk-active' }}">
+	{% if 'uk-nav-divider' not in item.classes %}
+		<a target="{{ item.is_external ? '_blank' : '_self' }}" href="{{ item.link }}">{{ item.title }}</a>
+	{% endif %}
+	</li>
+{% endfor %}
+</ul>
+{% endif %}

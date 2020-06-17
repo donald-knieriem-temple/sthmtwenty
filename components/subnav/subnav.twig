@@ -1,0 +1,9 @@
+{% if menu %}
+<ul class="uk-subnav {{ divider ? ' uk-subnav-divider' }}{{ pill ? 'uk-subnav-pill'}}" uk-margin>
+	{% for item in menu.items %}
+    	<li class="{{ item.classes | join(' ') }}{{ skipActive and item.current ? ' uk-active' }}">
+		<a target="{{ item.is_external ? '_blank' : '_self' }}" href="{{ item.link }}">{{ item.title }}</a>
+	</li>
+{% endfor %}
+</ul>
+{% endif %}

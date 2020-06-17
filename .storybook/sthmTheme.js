@@ -8,6 +8,6 @@ export default create({
   fontCode: 'monospace',
 
   brandTitle: 'STHM Twenty Theme',
-  brandUrl: 'https://donald-knieriem-temple.github.io/theme-twenty/',
+  brandUrl: 'https://donald-knieriem-temple.github.io/sthmtwenty/',
   brandImage: 'https://placehold.it/350x150',
 });

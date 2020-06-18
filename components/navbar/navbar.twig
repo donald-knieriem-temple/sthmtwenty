@@ -1,0 +1,19 @@
+{% if menu %}
+	<nav class="uk-navbar-container" uk-navbar>
+    	<div class="uk-navbar-left">
+        	<ul class="uk-navbar-nav">
+	{% for item in menu.items %}
+		<li class="{{ item.classes | join(' ') }}{{ item.current or item.current_item_ancestor ? ' uk-active' }}{{ item.children ? ' uk-parent' }}">
+			<a target="{{ item.is_external ? '_blank' : '_self' }}" href="{{ item.link }}">{{ item.title }}</a>
+			{% if item.children %} 
+				<div class="uk-navbar-dropdown">
+				{% include "../nav/nav.twig" with {'items': item.children, 'classes': [ 'uk-navbar-dropdown-nav' ] } %}
+			</div>
+			{% endif %}
+		</li>
+		
+	{% endfor %}
+		</ul>
+	</div>
+</nav>
+{% endif %}

@@ -1,0 +1,10 @@
+{# Bare modal with just body, and internal close 'x' button #}
+<div id="{{id}}" class="uk-flex-top" uk-modal>
+	<div class="uk-modal-dialog uk-modal-body {{ container ? 'uk-modal-container' }} {{ vertical ? 'uk-margin-auto-vertical' : '' }}" uk-overflow-auto>
+		<button class="uk-modal-close-default" type="button" uk-close></button>
+		{% if title %}
+		    	<h2 class="uk-modal-title">{{title}}</h2>
+		{% endif %}
+		    {{body}}
+	</div>
+</div>

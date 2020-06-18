@@ -1,5 +1,6 @@
 {
-  "name": "Theme Twenty",
+  "name": "sthm/sthmtwenty",
+  "version": "1.0.1",
   "description": "STHM 2020 Theme",
   "type":"wordpress-theme",
   "minimum-stability" : "stable",

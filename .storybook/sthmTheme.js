@@ -1,4 +1,5 @@
 import { create } from '@storybook/theming/create';
+import image from '../static/sthm-logo-black.png';
 
 export default create({
   base: 'light',
@@ -8,6 +9,6 @@ export default create({
   fontCode: 'monospace',
 
   brandTitle: 'STHM Twenty Theme',
-  brandUrl: 'https://donald-knieriem-temple.github.io/theme-twenty/',
-  brandImage: 'https://placehold.it/350x150',
+  brandUrl: 'https://donald-knieriem-temple.github.io/sthmtwenty/',
+  brandImage: image,
 });

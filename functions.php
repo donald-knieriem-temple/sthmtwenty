@@ -65,6 +65,7 @@ class StarterSite extends Timber\Site {
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'register_menus' ) );
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -84,7 +85,9 @@ class StarterSite extends Timber\Site {
 		$context['foo']   = 'bar';
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
-		$context['menu']  = new Timber\Menu();
+		$context['tertiaryMenu']  = new Timber\Menu('tertiary');
+		$context['siteNav'] = new Timber\Menu('site_nav');
+		$context['footerNav'] = new Timber\Menu('footer_nav');
 		$context['site']  = $this;
 		return $context;
 	}
@@ -141,6 +144,18 @@ class StarterSite extends Timber\Site {
 		);
 
 		add_theme_support( 'menus' );
+
+	}
+
+	public function register_menus( $context )
+	{
+		register_nav_menus(
+			array(
+				'tertiary' => __( 'Tertiary Nav'),
+				'site_nav' => __( 'Site Nav'),
+				'footer_nav' => __( 'Footer Nav'),
+			)
+		);
 	}
 
 	/** This Would return 'foo bar!'.

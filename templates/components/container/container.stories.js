@@ -26,10 +26,21 @@ const backgrounds = {
 }
 
 storiesOf('Components|Container', module)
-.addDecorator(story => `<div class="uk-section uk-section-muted">${story()}</div>`)
 .add('Default', () => 
 	container({
 		size: select('Size', sizes, 'uk-container-expand'),
-		background: select('Background', backgrounds, 'uk-background-default'),
+		background: select('Background', backgrounds, 'uk-background-muted'),
 		contents: '<p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipisicing elit.</p>',
-}));
+}))
+.add('XSmall', () => 
+	container({
+		size: select('Size', sizes, 'uk-container-xsmall'),
+		background: select('Background', backgrounds, 'uk-background-muted'),
+		contents: '<p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipisicing elit.</p>',
+}))
+.add('Large', () => 
+	container({
+		size: select('Size', sizes, 'uk-container-large'),
+		background: select('Background', backgrounds, 'uk-background-muted'),
+		contents: '<p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipisicing elit.</p>',
+}))

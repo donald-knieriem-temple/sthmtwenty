@@ -6,10 +6,8 @@ addDecorator(withKnobs);
 
 // wrap each story in a uikit section and container for default spacing
 addDecorator( story => 
-`<div class="uk-section">
-	<div class="uk-container">
+`<div class="uk-section uk-margin uk-margin-left uk-margin-right">
 		${story()}
-	</div><!-- /.uk-container -->
 </div><!-- /.uk-section -->`
 );
 

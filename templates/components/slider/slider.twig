@@ -1,0 +1,30 @@
+<div class="{{ classes|join(' ') }}" uk-slider>
+    <ul class="uk-slider-items {{ widths|join(' ') }}">
+    	{% for item in items %}	
+        <li>
+            {% if item.body %}
+            	{{ item.body }}
+            {% elseif item.img %}
+            	<img src="{{ item.img }}" alt="">
+            	{# TODO: add panel content if item.panel #}
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+
+	{% if nav %}
+		{% include '../slidenav/slidenav.twig' with {
+			'large': false,
+			'hover': true,
+			'positionPrev': [
+				'uk-position-center-left',
+				'uk-position-small'
+			],
+			positionNext: [
+				'uk-position-center-right',
+				'uk-position-small'
+			]
+			}
+		%}
+	{% endif %}    
+</div>

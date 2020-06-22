@@ -154,6 +154,7 @@ class StarterSite extends Timber\Site {
 				'tertiary' => __( 'Tertiary Nav'),
 				'site_nav' => __( 'Site Nav'),
 				'footer_nav' => __( 'Footer Nav'),
+				'sub_nav' => __( 'Sub Nav' ),
 			)
 		);
 	}

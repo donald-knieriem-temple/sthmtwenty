@@ -3,20 +3,22 @@ import { storiesOf } from '@storybook/html';
 import { withActions } from '@storybook/addon-actions';
 import { array, boolean, button, color, date, select, withKnobs, text, number } from '@storybook/addon-knobs';
 
-import siteHeader from './site-header.twig'
+import subnav from './subnav.twig'
 
-import siteHeaderScss from './site-header.scss'
+import subnavScss from './subnav.scss'
 
-import "../../src/scripts/uikit.min.js";
-import "../../src/styles/uikit/dist/css/uikit.min.css";
+import "../../../src/scripts/uikit.min.js";
+import "../../../src/styles/uikit/dist/css/uikit.min.css";
 
-storiesOf('Template Parts|Template Parts', module)
+storiesOf('Components|Subnav', module)
+.addDecorator(story => `<div class="uk-child-width-1-3@s uk-grid-small uk-grid-match" uk-grid>
+    <div>${story()}</div></div>`)
 /*.addDecorator(withActions('click', 'click uk-button'))*/
-.add('Site Header', () => 
-	siteHeader({
+.add('Tertiary style', () => 
+	subnav({
 		divider: true,
 		skipActive: true,
-		tertiaryNav: {
+		menu: {
 			items: [
 			{
 				title: 'Item 1',
@@ -32,7 +34,11 @@ storiesOf('Template Parts|Template Parts', module)
 			}
 			],
 		}, 
-		siteNav: {
+}))
+.add('Subnav Style', () => 
+	subnav({
+		pill: true,
+		menu: {
 			items: [
 			{
 				title: 'Item 1',
@@ -48,4 +54,4 @@ storiesOf('Template Parts|Template Parts', module)
 			}
 			],
 		}, 
-}));
+}))

@@ -1,6 +1,12 @@
 {# site-header.twig #}
 
 {# Tertiary Nav #}
-
+{% block tertiary %}
+	{% include '../components/subnav/subnav.twig'  with {'menu': tertiaryNav, 'divider': true, 'skipActive': true } %}
+{% endblock %}
 
 {# Main Nav with Logo #}
+{% block mainNav %}
+	{% include '../components/navbar/navbar.twig' with { 
+	'menu': siteNav } %}
+{% endblock %}

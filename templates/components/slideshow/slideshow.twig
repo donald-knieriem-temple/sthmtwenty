@@ -1,0 +1,66 @@
+{% set slideshowAtts = [] %}
+{% if animation %}
+	{% set slideshowAtts = slideshowAtts|merge([ 'animation:' ~ animation]) %}
+{% endif %}
+{% if autoplay %}
+	{% set slideshowAtts = slideshowAtts|merge([ 'autoplay:' ~ autoplay ]) %}
+{% endif %}
+{% if finite %}
+	{% set slideshowAtts = slideshowAtts|merge([ 'finite:' ~ finite ]) %}
+{% endif %}
+{% if ratio %}
+	{% set slideshowAtts = slideshowAtts|merge([ 'ratio:' ~ ratio ]) %}
+{% endif %}
+{% if minHeight %}
+	{% set slideshowAtts = slideshowAtts|merge([ 'min-height:' ~ minHeight ]) %}
+{% endif %}
+{% if maxHeight %}
+	{% set slideshowAtts = slideshowAtts|merge([ 'max-height:' ~ maxHeight ]) %}
+{% endif %}
+
+<div class="{{ classes|join(' ') }}" uk-slideshow{{ slideshowAtts ? '="' ~ slideshowAtts|join('; ') ~ '"' }}>
+    <ul class="uk-slideshow-items">
+    	{% for item in items %}
+        <li>
+            <img src="{{ item.src }}" alt="" uk-cover>
+            {% if item.content %}
+            	{% if contentContainer == 'cover' %}
+            		<div class="uk-position-center uk-position-small uk-text-center uk-light">
+            	{% elseif contentContainer == 'overlay' %} 
+            		<div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+        		{% endif %}
+            		{{ item.content }}
+            	</div>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+
+    {% if nav %}
+		{% include '../slidenav/slidenav.twig' with {
+			'large': false,
+			'hover': true,
+			'for': 'slideshow',
+			'positionPrev': [
+				'uk-position-center-left',
+				'uk-position-small'
+			],
+			'positionNext': [
+				'uk-position-center-right',
+				'uk-position-small'
+			]
+			}
+		%}
+    {% endif %}
+    {% if dotNav %}
+    	{% include '../dotnav/dotnav.twig' with {
+	    		'position': [
+					'uk-position-bottom-center',
+					'uk-position-small'
+				],
+				'attributeIndex': 'uk-slideshow-item',
+				'items': items,
+    		}
+		%}
+    {% endif %}
+</div>

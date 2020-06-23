@@ -1,9 +1,13 @@
 <div class="{{ classes|join(' ') }}" uk-slider>
-    <ul class="uk-slider-items {{ widths|join(' ') }}">
+    <ul class="uk-slider-items uk-grid {{ gridGap }} uk-grid-match {{ widths|join(' ') }}">
     	{% for item in items %}	
         <li>
             {% if item.body %}
-            	{{ item.body }}
+            <div class="uk-card uk-card-primary">
+            	<div class="uk-card-body">	
+            		{{ item.body }}
+            	</div>
+            </div>
             {% elseif item.img %}
             	<img src="{{ item.img }}" alt="">
             	{# TODO: add panel content if item.panel #}
@@ -16,6 +20,7 @@
 		{% include '../slidenav/slidenav.twig' with {
 			'large': false,
 			'hover': true,
+			'for': 'slider',
 			'positionPrev': [
 				'uk-position-center-left',
 				'uk-position-small'

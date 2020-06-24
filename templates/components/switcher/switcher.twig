@@ -1,0 +1,31 @@
+{% if type == 'uk-switcher' %}
+<ul class="uk-subnav uk-subnav-pill" uk-switcher>
+	{% for item in items %}
+    	<li><a href="#">{{ item.title }}</a></li>
+	{% endfor %}
+</ul>
+{% elseif type == 'uk-tabs' %}
+<ul uk-tab>
+	{% for item in items %}
+	    <li><a href="#">{{ item.title }}</a></li>
+    {% endfor %}
+</ul>
+{% elseif type == 'uk-buttons' %}
+<div uk-switcher="animation: uk-animation-fade; toggle: > *">
+	{% for item in items %}
+    	<button class="uk-button uk-button-default" type="button">{{ item.title }}</button>
+    {% endfor %}
+</div>
+{% else %}
+{# default case #}
+<ul class="uk-subnav uk-subnav-pill" uk-switcher>
+		{% for item in items %}
+	<li><a href="#">{{ item.title }}</a></li>
+	{% endfor %}
+{% endif %}
+
+<ul class="uk-switcher uk-margin">
+	{% for item in items %}
+    <li>{{ item.body }}</li>
+	{% endfor %}
+</ul>

@@ -1,7 +1,8 @@
 module.exports = {
   stories: [
   '../templates/**/*.stories.js',
-  '../blocks/**/*.stories.js'
+  '../blocks/**/*.stories.js',
+  './sample-pages/*.stories.js',
   ],
   addons: [
   '@storybook/addon-knobs/register',

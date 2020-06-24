@@ -1,0 +1,25 @@
+{
+  "name": "@sthm/section",
+  "version": "0.1.0",
+  "description": "Section block groups multiple blocks into one uikit section",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "keywords": [
+    "gutenberg",
+    "block",
+    "wordpress"
+  ],
+  "author": "dknieriem <don@thecanarium.com>",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@wordpress/components": "^9.9.0",
+    "@wordpress/prettier-config": "^0.3.0",
+    "@wordpress/scripts": "^12.0.0",
+    "twig": "^1.15.1",
+    "twig-loader": "^0.5.4"
+  }
+}

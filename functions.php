@@ -66,6 +66,7 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'init', array( $this, 'register_menus' ) );
+		add_action( 'init', array( $this, 'register_blocks' ) );
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -157,6 +158,29 @@ class StarterSite extends Timber\Site {
 				'sub_nav' => __( 'Sub Nav' ),
 			)
 		);
+	}
+
+	public function register_blocks( $context )
+	{
+
+		// foreach ( glob(TEMPLATEPATH . "/blocks/*/build/", ) as $blockdir )
+		// {
+		//     include $filename;
+		// }
+
+		// automatically load dependencies and version
+    	$asset_file = include( TEMPLATEPATH . 'blocks/section/build/index.asset.php');
+ 
+   		wp_register_script(
+	        'sthm-section',
+	        TEMPLATEPATH . 'blocks/section/build/index.js', __FILE__ ),
+	        $asset_file['dependencies'],
+	        $asset_file['version']
+	    );
+	 
+	    register_block_type( 'sthm/sthm-section', array(
+	        'editor_script' => 'sthm-section',
+	    ) );
 	}
 
 	/** This Would return 'foo bar!'.

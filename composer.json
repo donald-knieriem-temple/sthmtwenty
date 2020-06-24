@@ -1,6 +1,5 @@
 {
   "name": "sthm/sthmtwenty",
-  "version": "1.0.1",
   "description": "STHM 2020 Theme",
   "type":"wordpress-theme",
   "minimum-stability" : "stable",
@@ -17,7 +16,7 @@
     }
   ],
   "require": {
-	  "timber/timber": "1.*"
+    "timber/timber": "^1.16"
   },
   "require-dev": {
     "phpunit/phpunit": "5.7.16|6.*"

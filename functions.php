@@ -66,7 +66,15 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'init', array( $this, 'register_menus' ) );
+		add_filter( 'block_categories', array( $this, 'my_plugin_block_categories' ) );
 		add_action( 'init', array( $this, 'register_blocks' ) );
+
+
+		// foreach ( glob(TEMPLATEPATH . "/blocks/*.php") as $filename )
+		// {
+		//     include $filename;
+		// }
+
 		parent::__construct();
 	}
 	/** This is where you can register custom post types. */
@@ -160,25 +168,39 @@ class StarterSite extends Timber\Site {
 		);
 	}
 
+	public function my_plugin_block_categories( $categories ) {
+
+    return array_merge(
+        $categories,
+        array(
+            array(
+                'slug' => 'sthm',
+                'title' => 'STHM',
+                'icon' => 'dashicons-welcome-add-page'
+            ),
+        )
+    );
+}
+
 	public function register_blocks( $context )
 	{
 
-		// foreach ( glob(TEMPLATEPATH . "/blocks/*/build/", ) as $blockdir )
-		// {
-		//     include $filename;
-		// }
+		foreach ( glob(TEMPLATEPATH . "/blocks/*.php") as $filename )
+		{
+		    include $filename;
+		}
 
 		// automatically load dependencies and version
-    	$asset_file = include( TEMPLATEPATH . 'blocks/section/build/index.asset.php');
+    	$asset_file = include( get_stylesheet_directory() . '/blocks/section/build/index.asset.php');
  
    		wp_register_script(
-	        'sthm-section',
-	        TEMPLATEPATH . 'blocks/section/build/index.js', __FILE__ ),
+	        'sthm-section', //handle
+	        get_stylesheet_directory_uri() . '/blocks/section/build/index.js', //filepath
 	        $asset_file['dependencies'],
 	        $asset_file['version']
 	    );
 	 
-	    register_block_type( 'sthm/sthm-section', array(
+	    register_block_type( 'sthm-section', array(
 	        'editor_script' => 'sthm-section',
 	    ) );
 	}

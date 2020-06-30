@@ -3,18 +3,49 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donald-knieriem-temple/sthmtwenty.git"
+  },
+  "author": "Donald Knieriem <donald.knieriem@temple.edu>",
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/donald-knieriem-temple/sthmtwenty/issues"
+  },
+  "homepage": "https://github.com/donald-knieriem-temple/sthmtwenty#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
     "storybook": "start-storybook -p 9009",
     "build-storybook": "build-storybook -o docs --loglevel verbose"
   },
-  "keywords": [],
-  "author": "donald-knieriem-temple <donald.knieriem@temple.edu>",
-  "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {
-    "@babel/core": "^7.10.2",
+  "dependencies": {
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
     "@fortawesome/fontawesome-free": "^5.13.0",
+    "autoprefixer": "^9.8.4",
+    "babel-loader": "^8.1.0",
+    "core-js": "^3.6.5",
+    "css-loader": "^3.6.0",
+    "cssnano": "^4.1.10",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "raw-loader": "^4.0.1",
+    "regenerator-runtime": "^0.13.5",
+    "require-context": "^1.1.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "svgo-loader": "^2.2.1",
+    "twig": "^1.15.1",
+    "twig-loader": "^0.5.3",
+    "webpack": "^4.43.0"
+  },
+  "devDependencies": {
     "@storybook/addon-a11y": "^5.3.19",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-jest": "^5.3.19",
@@ -26,15 +57,13 @@
     "@storybook/core": "^5.3.19",
     "@storybook/html": "^5.3.19",
     "@storybook/theming": "^5.3.19",
+    "@wordpress/components": "^9.9.0",
+    "@wordpress/prettier-config": "^0.3.0",
     "@wordpress/scripts": "^12.0.0",
-    "babel-loader": "^8.1.0",
-    "css-loader": "^3.5.3",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^8.0.2",
+    "extract-loader": "^5.1.0",
     "storybook-readme": "^5.0.8",
-    "style-loader": "^1.2.1",
-    "twig": "^1.15.1",
-    "twig-loader": "^0.5.3",
-    "uikit": "^3.5.3"
+    "uikit": "^3.5.3",
+    "webpack-cli": "^3.3.12",
+    "webpack-watch-time-plugin": "^0.3.0"
   }
 }

@@ -7,7 +7,7 @@
 			<a target="{{ item.is_external ? '_blank' : '_self' }}" href="{{ item.link }}">{{ item.title }}</a>
 			{% if item.children %} 
 				<div class="uk-navbar-dropdown">
-				{% include "../nav/nav.twig" with {'items': item.children, 'classes': [ 'uk-navbar-dropdown-nav' ] } %}
+				{% include "./components/nav/nav.twig" with {'items': item.children, 'classes': [ 'uk-navbar-dropdown-nav' ] } %}
 			</div>
 			{% endif %}
 		</li>

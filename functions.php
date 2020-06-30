@@ -96,7 +96,7 @@ class StarterSite extends Timber\Site {
 		$context['foo']   = 'bar';
 		$context['stuff'] = 'I am a value set in your functions.php file';
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
-		$context['tertiaryMenu']  = new Timber\Menu('tertiary');
+		$context['tertiaryNav']  = new Timber\Menu('tertiary');
 		$context['siteNav'] = new Timber\Menu('site_nav');
 		$context['footerNav'] = new Timber\Menu('footer_nav');
 		$context['site']  = $this;
@@ -168,19 +168,63 @@ class StarterSite extends Timber\Site {
 				'sub_nav' => __( 'Sub Nav' ),
 			)
 		);
-	}
-	public function my_plugin_block_categories( $categories ) {
 
-	    return array_merge(
-	        $categories,
-	        array(
-	            array(
-	                'slug' => 'sthm',
-	                'title' => 'STHM',
-	                'icon' => 'dashicons-welcome-add-page'
-	            ),
-	        )
-	    );
+	    $menuname = 'Tertiary Nav';
+		$menulocation = 'tertiary';
+		// Does the menu exist already?
+		$menu_exists = wp_get_nav_menu_object( $menuname );
+
+		// If it doesn't exist, let's create it.
+		if( !$menu_exists){
+		    $menu_id = wp_create_nav_menu( $menuname );
+
+		    // Set up default BuddyPress links and add them to the menu.
+		    wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Apply Now'),
+		        'menu-item-classes' => '',
+		        'menu-item-url' => esc_url_raw( 'https://temple.edu/apply/' ),
+		        'menu-item-type' => 'custom',
+		        'menu-item-status' => 'publish'));
+
+		    wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Schedule a Visit'),
+		        'menu-item-classes' => '',
+		        'menu-item-url' => home_url( '/undergraduate-programs/schedule-a-visit/' ), 
+		        'menu-item-status' => 'publish'));
+
+		    wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Request Info'),
+		        'menu-item-classes' => '',
+		        'menu-item-url' => home_url( '/undergraduate-programs/request-information/' ), 
+		        'menu-item-status' => 'publish'));
+
+		    wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Alumni'),
+		        'menu-item-classes' => '',
+		        'menu-item-url' => home_url( '/alumni/' ), 
+		        'menu-item-status' => 'publish'));
+
+		    wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Current Students'),
+		        'menu-item-classes' => '',
+		        'menu-item-url' => home_url( '/current-students/' ), 
+		        'menu-item-status' => 'publish'));
+
+			wp_update_nav_menu_item($menu_id, 0, array(
+		        'menu-item-title' =>  __('Support STHM'),
+		        'menu-item-classes' => 'uk-btn uk-btn-primary',
+		        'menu-item-url' => home_url( '/give/' ), 
+		        'menu-item-status' => 'publish'));
+
+	    	// Grab the theme locations and assign our newly-created menu
+		    // to the BuddyPress menu location.
+		    if( !has_nav_menu( $menulocation ) ){
+		        $locations = get_theme_mod('nav_menu_locations');
+		        $locations[$menulocation] = $menu_id;
+		        set_theme_mod( 'nav_menu_locations', $locations );
+		    }
+
+		}
 	}
 
 	public function register_scripts( $context )

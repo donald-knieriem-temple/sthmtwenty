@@ -21,7 +21,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook -o docs"
+    "build-storybook": "build-storybook -o docs",
+    "chromatic": "npx chromatic --project-token=i01vw1riaxr"
   },
   "dependencies": {
     "@babel/core": "^7.10.3",

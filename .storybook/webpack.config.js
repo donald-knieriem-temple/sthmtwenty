@@ -30,7 +30,7 @@ module.exports = ({ config }) => {
           autoprefixer: {
             browsers: ["last 2 versions"]
           },
-          sourceMap: true,
+          // sourceMap: true,
           ident: "postcss"
         }
       },

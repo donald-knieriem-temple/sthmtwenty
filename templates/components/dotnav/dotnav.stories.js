@@ -47,13 +47,13 @@ storiesOf('Components|Dotnav', module)
 .addDecorator(story => `<div class="uk-position-relative uk-light" uk-slideshow>
     <ul class="uk-slideshow-items">
         <li>
-            <img src="https://placekitten.com/600/400" alt="" uk-cover>
+            <img src="https://placekitten.com/600/400?image=1" alt="" uk-cover>
         </li>
         <li>
-            <img src="https://placekitten.com/600/400" alt="" uk-cover>
+            <img src="https://placekitten.com/600/400?image=2" alt="" uk-cover>
         </li>
         <li>
-            <img src="https://placekitten.com/600/400" alt="" uk-cover>
+            <img src="https://placekitten.com/600/400?image=3" alt="" uk-cover>
         </li>
     </ul>${story()}</div>`)
 .add('As Overlay', () => 

@@ -27,9 +27,9 @@ storiesOf('Components|Slideshow', module)
 .add('Default', () => 
 	slideshow({
 		items: [
-			{ src: 'https://placekitten.com/600/400', content: '<h1>Heading</h1><p>Content</p>', },
-			{ src: 'https://placekitten.com/600/400', content: '', },
-			{ src: 'https://placekitten.com/600/400', content: '', },
+			{ src: 'https://placekitten.com/600/400?image=1', content: '<h1>Heading</h1><p>Content</p>', },
+			{ src: 'https://placekitten.com/600/400?image=2', content: '', },
+			{ src: 'https://placekitten.com/600/400?image=3', content: '', },
 		],
 		classes: [
 				'uk-position-relative',
@@ -50,9 +50,9 @@ storiesOf('Components|Slideshow', module)
 .add('Overlay', () => 
 	slideshow({
 		items: [
-			{ src: 'https://placekitten.com/600/400', content: '<h1>Heading</h1><p>Content</p>', },
-			{ src: 'https://placekitten.com/600/400', content: '', },
-			{ src: 'https://placekitten.com/600/400', content: '', },
+			{ src: 'https://placekitten.com/600/400?image=1', content: '<h1>Heading</h1><p>Content</p>', },
+			{ src: 'https://placekitten.com/600/400?image=2', content: '', },
+			{ src: 'https://placekitten.com/600/400?image=3', content: '', },
 		],
 		classes: [
 				'uk-position-relative',
@@ -73,9 +73,9 @@ storiesOf('Components|Slideshow', module)
 .add('Fade Animation', () => 
 	slideshow({
 		items: [
-			{ src: 'https://placekitten.com/600/400', content: '<h1>Heading</h1><p>Content</p>', },
-			{ src: 'https://placekitten.com/600/400', content: '', },
-			{ src: 'https://placekitten.com/600/400', content: '', },
+			{ src: 'https://placekitten.com/600/400?image=1', content: '<h1>Heading</h1><p>Content</p>', },
+			{ src: 'https://placekitten.com/600/400?image=2', content: '', },
+			{ src: 'https://placekitten.com/600/400?image=3', content: '', },
 		],
 		classes: [
 				'uk-position-relative',
@@ -92,5 +92,4 @@ storiesOf('Components|Slideshow', module)
 		viewport: boolean('Size to Viewport', false), //set slide height to full viewport
 		nav: boolean('Nav Arrows', true), //prev/next arrows
 		dotNav: boolean('Dot Nav', false), //dotnav at bottom
-}))
-
+}));

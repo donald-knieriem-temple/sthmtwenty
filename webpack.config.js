@@ -12,10 +12,10 @@ module.exports = (env, argv) => {
       script: './src/js/scripts.js',
     },
     output: {
-      filename: '[name].js',
-      chunkFilename: '[name].js?ver=[chunkhash]',
+      filename: 'js/[name].js',
+      chunkFilename: 'js/[name].js?ver=[chunkhash]',
       path: path.resolve(__dirname, 'assets'),
-      publicPath: '/wp-content/themes/sthmtwenty/assets/',
+      publicPath: '/wp-content/themes/sthmtwenty/assets',
     },
     resolve: {
       extensions: ['*', '.js'],
@@ -60,6 +60,19 @@ module.exports = (env, argv) => {
           ],
         },
         {
+          test: /\.css$/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                path: path.resolve(__dirname, 'assets/css'),
+                publicPath: '/wp-content/themes/sthmtwenty/assets/css',
+              },
+            },
+            'css-loader',
+          ],
+        },
+        {
           test: /\.(png|svg|jpg|jpeg|tiff|webp|gif|ico|woff|woff2|eot|ttf|otf|mp4|webm|wav|mp3|m4a|aac|oga)$/,
           use: [
             {
@@ -75,8 +88,9 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: '[name].css',
-        chunkFilename: '[id].css',
+        filename: 'css/[name].css',
+        chunkFilename: 'css/[id].css',
+        path: path.resolve(__dirname, 'assets'),
       }),
       new WatchTimePlugin(),
     ],

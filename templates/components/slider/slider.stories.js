@@ -27,9 +27,9 @@ storiesOf('Components|Slider', module)
 		],
 		gridGap: 'uk-grid-collapse',
 		items: [
-			{ img: 'https://placekitten.com/600/400'},
-			{ img: 'https://placekitten.com/600/400'},
-			{ img: 'https://placekitten.com/600/400'},
+			{ img: 'https://placekitten.com/600/400?image=1'},
+			{ img: 'https://placekitten.com/600/400?image=2'},
+			{ img: 'https://placekitten.com/600/400?image=3'},
 			{ body: '<p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipisicing elit.</p>',},
 			{ body: '<p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipisicing elit.</p>',}
 		],

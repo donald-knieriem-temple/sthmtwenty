@@ -1,12 +1,19 @@
 <?php
 /**
- * Timber starter-theme
- * https://github.com/timber/starter-theme
+ * STHMTwenty Theme
+ * https://github.com/donald-knieriem-temple/sthmtwenty
  *
  * @package  WordPress
- * @subpackage  Timber
- * @since   Timber 0.1
+ * @subpackage  STHM
  */
+
+if ( file_exists('.ver') )
+{
+	$theme_ver = file_get_contents('.ver');
+} else {
+	$theme_ver = '1.0.0'; //default
+}
+
 
 /**
  * If you are installing Timber as a Composer dependency in your theme, you'll need this block
@@ -66,14 +73,9 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'init', array( $this, 'register_menus' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
 		add_filter( 'block_categories', array( $this, 'my_plugin_block_categories' ) );
 		add_action( 'init', array( $this, 'register_blocks' ) );
-
-
-		// foreach ( glob(TEMPLATEPATH . "/blocks/*.php") as $filename )
-		// {
-		//     include $filename;
-		// }
 
 		parent::__construct();
 	}
@@ -167,20 +169,42 @@ class StarterSite extends Timber\Site {
 			)
 		);
 	}
+	public function my_plugin_block_categories( $categories ) {
+
+	    return array_merge(
+	        $categories,
+	        array(
+	            array(
+	                'slug' => 'sthm',
+	                'title' => 'STHM',
+	                'icon' => 'dashicons-welcome-add-page'
+	            ),
+	        )
+	    );
+	}
+
+	public function register_scripts( $context )
+	{
+		wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/assets/css/style.css', array(), $theme_ver, 'all' );
+
+		wp_enqueue_script( 'stylescript', get_stylesheet_directory_uri() . '/assets/js/style.js', array(), $theme_ver, false );
+
+		wp_enqueue_script( 'script', get_stylesheet_directory_uri() . '/assets/js/script.js', array('stylescript'), $theme_ver, false );
+	}
 
 	public function my_plugin_block_categories( $categories ) {
 
-    return array_merge(
-        $categories,
-        array(
-            array(
-                'slug' => 'sthm',
-                'title' => 'STHM',
-                'icon' => 'dashicons-welcome-add-page'
-            ),
-        )
-    );
-}
+	    return array_merge(
+	        $categories,
+	        array(
+	            array(
+	                'slug' => 'sthm',
+	                'title' => 'STHM',
+	                'icon' => 'dashicons-welcome-add-page'
+	            ),
+	        )
+	    );
+	}
 
 	public function register_blocks( $context )
 	{

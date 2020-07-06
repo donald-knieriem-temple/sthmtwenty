@@ -212,7 +212,7 @@ class StarterSite extends Timber\Site {
 
 			wp_update_nav_menu_item($menu_id, 0, array(
 		        'menu-item-title' =>  __('Support STHM'),
-		        'menu-item-classes' => 'uk-btn uk-btn-primary',
+		        'menu-item-classes' => 'btn btn-primary',
 		        'menu-item-url' => home_url( '/give/' ), 
 		        'menu-item-status' => 'publish'));
 

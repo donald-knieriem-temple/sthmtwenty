@@ -1,12 +1,35 @@
 {# site-header.twig #}
-
-{# Tertiary Nav #}
-{% block tertiary %}
-	{% include './components/subnav/subnav.twig'  with {'menu': tertiaryNav, 'divider': true, 'skipActive': true } %}
-{% endblock %}
-
-{# Main Nav with Logo #}
-{% block mainNav %}
-	{% include './components/navbar/navbar.twig' with { 
-	'menu': siteNav } %}
-{% endblock %}
+<header class="header uk-light">
+	<div class="header-container">
+		<div class="logo-box">
+			<img class="header--logo" src="{{ theme.path }}/assets/images/temple-logo-t-box.svg" alt="Temple T" />
+		</div>
+		<div class="d-flex flex-column flex-grow-1">
+			<div class="d-flex flex-row justify-content-between">
+				{# explore temple #}
+				<nav class="nav subnav-explore flex-grow-1"><a class="nav-item nav-link pl-0" href="#">Explore Temple University <i class="fas fa-chevron-down"></i></a></nav>
+				{% block tertiary %}
+					{% include './components/subnav/subnav.twig'  with {'menu': tertiaryNav, 'name': 'tertiary', 'skipActive': true, 'justify': 'justify-content-end' } %}
+				{% endblock %}
+			</div>
+			<div class="d-flex justify-content-between flex-grow-1">
+				<h3 class="header--title"><span>School of Sport, Tourism</span><span>and Hospitality Management</span></h3>
+				{% block search %}
+				<div class="search-container">
+					<form class="pr-0" method="get" id="searchform" action="https://sthm.temple.edu/">
+	                    <input type="text" class="field" name="s" id="s" placeholder="Search">
+	                    <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+	                </form>
+	            </div>
+				{% endblock %}
+			</div>
+		</div>
+	</div>
+	<div class="header-container">
+		{# Main Nav with Logo #}
+		{% block mainNav %}
+			{% include './components/navbar/navbar.twig' with { 
+			'menu': siteNav, 'name': 'primary', 'classes': 'uk-navbar-transparent' } %}
+		{% endblock %}
+	</div>
+</header>

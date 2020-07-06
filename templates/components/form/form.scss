@@ -1,2 +1,7 @@
 // TODO: add gravityforms reset
 // TODO: set gravityforms elements to extend UIKit form elements (https://getuikit.com/docs/form)
+// 
+input:focus
+{
+	outline-color: map-get($theme-colors, "primary");
+}

@@ -1,0 +1,30 @@
+/* colors */
+
+$theme-colors: (
+  "primary": #a42035,
+  "cherry": #a42035,
+  "warning": #fcb813,
+  "orange": #fcb813,
+  "secondary": #d0Ecf6,
+  "blue": #d0Ecf6,
+  "darkblue": #99c1d6,
+  "white": #ffffff,
+  "offwhite": #F2EEE8,
+  "greylight": #848484,
+  "grey": #707070,
+  "dark": #272727,
+  "black": #000000,
+  "overlaylight": #00000059,
+  "overlaydark": #00000099,
+);
+
+$white: #ffffff;
+$black: #000000;
+$divider-color: #848484;
+$white-hover: rgba(255, 255, 255, 0.7);
+/* Fonts */
+$sthm-heading-font: 'Faustina', serif;
+$sthm-heading-weight: 600;
+/* Root EM size */
+
+$root-em: 16;

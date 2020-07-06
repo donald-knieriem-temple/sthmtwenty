@@ -1,7 +1,8 @@
 //import $ from 'jquery';
+import 'bootstrap';
+import 'uikit';
 
-// $(document).ready(() => {
-document.ready( () => {
+jQuery(document).ready(() => {
    console.log('Hello word!');
 });
 

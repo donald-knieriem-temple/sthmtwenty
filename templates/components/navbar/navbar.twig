@@ -1,5 +1,5 @@
 {% if menu %}
-	<nav class="uk-navbar-container" uk-navbar>
+	<nav class="uk-navbar-container {{ name ? "navbar--#{ name }" }} {{ classes | join(' ') }}" uk-navbar>
     	<div class="uk-navbar-left">
         	<ul class="uk-navbar-nav">
 	{% for item in menu.items %}

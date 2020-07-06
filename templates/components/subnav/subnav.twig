@@ -1,9 +1,19 @@
 {% if menu %}
-<ul class="uk-subnav {{ divider ? ' uk-subnav-divider' }}{{ pill ? 'uk-subnav-pill'}}" uk-margin>
-	{% for item in menu.items %}
-    	<li class="{{ item.classes | join(' ') }}{{ skipActive and item.current ? ' uk-active' }}">
-		<a target="{{ item.is_external ? '_blank' : '_self' }}" href="{{ item.link }}">{{ item.title }}</a>
-	</li>
-{% endfor %}
-</ul>
+	{% if uikit %}
+		<ul class="uk-subnav{{ divider ? ' uk-subnav-divider' }}{{ pill ? ' uk-subnav-pill'}}{{ name ? " subnav-#{name}" }}" uk-margin>
+			{% for item in menu.items %}
+		    	<li class="{{ item.classes | join(' ') }}{{ skipActive and item.current ? ' uk-active' }}">
+				<a target="{{ item.is_external ? '_blank' : '_self' }}" href="{{ item.link }}">{{ item.title }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %} {# default to bootstrap #}
+		<ul class="nav{{ pill ? ' nav-pills'}}{{ tabs ? ' nav-tabs' }}{{ name ? " subnav-#{name}" }} {{ justify ?? '' }}">
+			{% for item in menu.items %}
+		    	<li class="nav-item ">
+				<a class="nav-link{{ skipActive and item.current ? ' active' }} {{ item.classes | join(' ') }}" target="{{ item.is_external ? '_blank' : '_self' }}" href="{{ item.link }}">{{ item.title }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
 {% endif %}

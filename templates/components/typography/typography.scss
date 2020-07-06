@@ -1,3 +1,5 @@
+@import "./src/styles/sthm/variables";
+
 /** Typography.scss
  *
  * Load fonts and define default typography for all elements
@@ -13,3 +15,13 @@
 //font-family: 'Roboto Condensed', sans-serif;
  
 // TODO: add story of text at various weights/italic, for each font, in a p tag
+
+:root {
+
+	body {
+		font-size: (23rem / $root-em);
+		font-family: 'Roboto', sans-serif;
+		line-height: (32rem / $root-em);
+		color: $black;
+	}
+}

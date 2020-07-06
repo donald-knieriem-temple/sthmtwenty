@@ -3,9 +3,12 @@ const WatchTimePlugin = require('webpack-watch-time-plugin');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = (env, argv) => {
   let config = {
+    watch: true,
     entry: {
       //twig: './src/twig.js',
       style: './src/scss.js',
@@ -85,6 +88,9 @@ module.exports = (env, argv) => {
           ],
         },
       ],
+    },
+    optimization: {
+      minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
     },
     plugins: [
       new MiniCssExtractPlugin({

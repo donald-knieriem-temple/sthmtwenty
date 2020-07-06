@@ -1,18 +1,35 @@
-$global-link-color: #DA7D02;
+//$global-link-color: #DA7D02;
 
-// 2. Import default variables and available mixins.
-@import "uikit/src/scss/variables-theme.scss";
-@import "uikit/src/scss/mixins-theme.scss";
+// 1.0 Import default variables and available mixins.
+@import "../../node_modules/uikit/src/scss/variables-theme.scss";
+@import "../../node_modules/uikit/src/scss/mixins-theme.scss";
 
-// 3. Your custom mixin overwrites.
-@mixin hook-card() { color: #000; }
 
-// 4. Import UIkit.
+// 1.1 Your custom mixin overwrites.
+//@mixin hook-card() { color: #000; }
+@import 'sthm/uikit';
+
+// 1.2. Import UIkit.
 @import "uikit/src/scss/uikit-theme.scss";
 
+// 2. Reset WP styles
+@import 'sthm/wp-reset';
+
+// 3.0 Customize Bootstrap
+@import 'sthm/bootstrap';
+
+// 3.1 Import Bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// 4. Site Customization
+@import 'sthm/variables';
+@import 'templates/parts/site-header';
+
+// 5. Component styles
 @import 'templates/components/accordion/accordion';
 @import 'templates/components/breadcrumb/breadcrumb';
 @import 'templates/components/button/button';
 @import 'templates/components/card/card';
-
-@import 'sthm/wp-reset';
+@import 'templates/components/form/form';
+@import 'templates/components/navbar/navbar';
+@import 'templates/components/typography/typography';

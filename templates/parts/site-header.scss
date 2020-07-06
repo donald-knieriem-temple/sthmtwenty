@@ -1,0 +1,143 @@
+@import "./src/styles/sthm/variables";
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+header 
+{
+	background-color: $black;
+	color: $white;
+
+	.header-container
+	{
+		@extend .container-fluid;
+		@extend .d-flex;
+
+		padding-left: (22.5rem / $root-em);
+		padding-right: (22.5rem / $root-em);
+
+		@include media-breakpoint-up(md)
+		{
+			padding-left: (45rem / $root-em);
+			padding-right: (45rem / $root-em);
+		}
+	}
+
+	&.uk-light 
+	{
+		a 
+		{
+			color: $white;
+
+			&:hover
+			{
+				color: $white-hover;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.logo-box
+	{
+		margin-right: 18px;
+	}
+
+	.header--logo
+	{
+		height: 120px;
+		width: 120px;
+		
+	}
+
+	.header--title
+	{
+		@extend .mb-0;
+		@extend .d-flex;
+		@extend .flex-column;
+		@extend .justify-content-end;
+
+		span
+		{
+			display: block;
+		}
+	}
+
+
+	.nav.subnav-tertiary, .nav.subnav-explore .nav-link
+	{
+		font-size: (13rem / $root-em);
+	}
+
+	.subnav-explore .nav-link
+	{
+		@extend .py-0;
+	}
+
+	.subnav-explore, .subnav-tertiary .nav-link:not(.btn)
+	{
+		border-bottom: 1px solid $divider-color;
+		@extend .py-1;
+	}
+
+	.subnav-tertiary .nav-link.btn
+	{
+		margin-left: (28rem / $root-em);
+		font-size: (13rem / $root-em);
+		text-transform: uppercase;
+	}
+
+	.search-container
+	{
+		@extend .col;
+		@extend .text-right;
+		@extend .pl-5;
+		@extend .pr-0;
+		@extend .m-auto;
+
+		#searchform
+		{
+			font-size: (16rem / $root-em);
+
+			input
+			{
+				background-color: transparent;
+				color: $white;
+				border: 1px solid $white;
+				padding-left: 19px;
+				padding-right: 19px;
+				width: 100%;
+				max-width: 400px;
+				height: (44rem / $root-em);
+
+				&::placeholder
+				{
+					color: $white;
+				}
+			}
+
+			.search-btn
+			{
+				position: absolute;
+			    color: #fff;
+			    border: none;
+			    background: transparent;
+			    right: 17px;
+			    top: 6px;
+			    font-size: (20rem / $root-em);
+
+			}
+		}
+	}
+
+	nav.navbar--primary 
+	{
+		.uk-navbar-nav > li > a
+		{
+			font-size: (19rem / $root-em);
+		}
+
+		.uk-navbar-nav > li:first-child > a
+		{
+			padding-left: 0;
+		}
+	}
+	
+}

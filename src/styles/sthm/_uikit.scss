@@ -1,0 +1,11 @@
+@import 'variables';
+
+$base-heading-font-family: $sthm-heading-font;
+$base-heading-font-weight: $sthm-heading-weight;
+
+$inverse-navbar-nav-item-color: $white;
+
+$navbar-nav-item-font-family: 'Roboto', Arial, sans-serif;
+$navbar-nav-item-font-size: (19rem / $root-em);
+
+$base-selection-background: map-get($theme-colors, "primary");

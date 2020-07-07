@@ -9,7 +9,7 @@
 				{# explore temple #}
 				<nav class="nav subnav-explore flex-grow-1"><a class="nav-item nav-link pl-0" href="#">Explore Temple University <i class="fas fa-chevron-down"></i></a></nav>
 				{% block tertiary %}
-					{% include './components/subnav/subnav.twig'  with {'menu': tertiaryNav, 'name': 'tertiary', 'skipActive': true, 'justify': 'justify-content-end' } %}
+					{% include 'templates/components/subnav/subnav.twig'  with {'menu': tertiaryNav, 'name': 'tertiary', 'skipActive': true, 'justify': 'justify-content-end' } %}
 				{% endblock %}
 			</div>
 			<div class="d-flex justify-content-between flex-grow-1">
@@ -28,7 +28,7 @@
 	<div class="header-container">
 		{# Main Nav with Logo #}
 		{% block mainNav %}
-			{% include './components/navbar/navbar.twig' with { 
+			{% include 'templates/components/navbar/navbar.twig' with { 
 			'menu': siteNav, 'name': 'primary', 'classes': 'uk-navbar-transparent' } %}
 		{% endblock %}
 	</div>

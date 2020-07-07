@@ -3,5 +3,5 @@
 // 
 input:focus
 {
-	outline-color: map-get($theme-colors, "primary");
+	outline: map-get($theme-colors, "primary") solid 2px;
 }

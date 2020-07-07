@@ -129,9 +129,14 @@ header
 
 	nav.navbar--primary 
 	{
+		.uk-navbar-nav > li:not(:last-child)
+		{
+			padding-bottom: 0.5rem;
+		}
 		.uk-navbar-nav > li > a
 		{
 			font-size: (19rem / $root-em);
+			line-height: (21rem / $root-em);
 		}
 
 		.uk-navbar-nav > li:first-child > a
@@ -140,4 +145,8 @@ header
 		}
 	}
 	
+	.uk-navbar-dropdown
+	{
+		background-color: $black;
+	}
 }

@@ -7,10 +7,13 @@ module.exports = ({ config }) => {
     test: /\.twig$/,
     use: [
       {
-        loader: 'twig-loader',
+        loader: 'twigjs-loader',
       },
     ],
   });
+
+  config.resolve.alias['components'] = path.resolve( __dirname, '../templates/components/');
+  config.resolve.alias['templates'] = path.resolve( __dirname, '../templates/');
 
   config.module.rules.push({
     test: /\.(scss)$/,

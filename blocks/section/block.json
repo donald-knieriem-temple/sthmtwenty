@@ -1,0 +1,14 @@
+{
+	"name": "sthm/section",
+	"title": "Section",
+	"category": "layout",
+	"icon": "editor-insertmore",
+	"description": "Page Section ",
+	"textdomain": "sthm",
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/style-index.css",
+	"style": "file:./build/style-index.css"
+}

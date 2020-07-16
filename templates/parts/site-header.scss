@@ -61,17 +61,30 @@ header
 	}
 
 
-	.nav.subnav-tertiary, .nav.subnav-explore .nav-link
+	.subnav-explore
+	{
+		border-bottom: 1px solid $divider-color;
+		@extend .py-1;
+
+		.nav-link
+		{
+			@extend .py-0;
+			font-size: (13rem / $root-em);
+		}	
+	}
+
+	.subnav-tertiary 
 	{
 		font-size: (13rem / $root-em);
+
+		.nav-link:not(.btn)
+		{
+			border-bottom: 1px solid $divider-color;
+			@extend .py-1;
+		}
 	}
 
-	.subnav-explore .nav-link
-	{
-		@extend .py-0;
-	}
-
-	.subnav-explore, .subnav-tertiary .nav-link:not(.btn)
+	.subnav-tertiary .nav-link:not(.btn)
 	{
 		border-bottom: 1px solid $divider-color;
 		@extend .py-1;
@@ -129,24 +142,40 @@ header
 
 	nav.navbar--primary 
 	{
-		.uk-navbar-nav > li:not(:last-child)
+		.uk-navbar-nav > li 
 		{
-			padding-bottom: 0.5rem;
-		}
-		.uk-navbar-nav > li > a
-		{
-			font-size: (19rem / $root-em);
-			line-height: (21rem / $root-em);
-		}
+			padding: 0 30px;
 
-		.uk-navbar-nav > li:first-child > a
-		{
-			padding-left: 0;
+			&:first-child > a
+			{
+				padding-left: 0;
+			}
+
+			> a
+			{
+				font-size: (19rem / $root-em);
+				line-height: (21rem / $root-em);
+			
+				&:before {
+				    content: "\f078";
+				    position: absolute;
+				    right: 15px;
+				    font-family: "Font Awesome 5 Free";
+				    font-weight: 600;
+				    font-size: 11px;
+				    bottom: 29px;
+				}
+			}
 		}
 	}
 	
 	.uk-navbar-dropdown
 	{
 		background-color: $black;
+
+		li:not(:last-child)
+		{
+			padding-bottom: 0.5rem;
+		}
 	}
 }

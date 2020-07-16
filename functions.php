@@ -244,7 +244,7 @@ class StarterSite extends Timber\Site {
 	            array(
 	                'slug' => 'sthm',
 	                'title' => 'STHM',
-	                'icon' => 'dashicons-welcome-add-page'
+	                'icon' => 'welcome-add-page'
 	            ),
 	        )
 	    );
@@ -253,24 +253,11 @@ class StarterSite extends Timber\Site {
 	public function register_blocks( $context )
 	{
 
-		foreach ( glob(TEMPLATEPATH . "/blocks/*.php") as $filename )
+		foreach ( glob(get_template_directory() . "/blocks/**/index.php") as $filename )
 		{
-		    include $filename;
+		   error_log("Including " . $filename); 
+		   include $filename;
 		}
-
-		// automatically load dependencies and version
-    	$asset_file = include( get_stylesheet_directory() . '/blocks/section/build/index.asset.php');
- 
-   		wp_register_script(
-	        'sthm-section', //handle
-	        get_stylesheet_directory_uri() . '/blocks/section/build/index.js', //filepath
-	        $asset_file['dependencies'],
-	        $asset_file['version']
-	    );
-	 
-	    register_block_type( 'sthm-section', array(
-	        'editor_script' => 'sthm-section',
-	    ) );
 	}
 
 	/** This Would return 'foo bar!'.

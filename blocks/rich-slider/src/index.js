@@ -4,8 +4,6 @@
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
 import { registerBlockType } from '@wordpress/blocks';
-import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, TextControl } from '@wordpress/components';
 
 /**
  * Retrieves the translation of text.
@@ -34,18 +32,18 @@ import Save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType( 'sthm/section', {
+registerBlockType( 'sthm/rich-slider', {
 	/**
 	 * This is the display title for your block, which can be translated with `i18n` functions.
 	 * The block inserter will show this name.
 	 */
-	title: __( 'Section', 'sthm' ),
+	title: __( 'Rich Slider', 'sthm' ),
 
 	/**
 	 * This is a short description for your block, can be translated with `i18n` functions.
 	 * It will be shown in the Block Tab in the Settings Sidebar.
 	 */
-	description: __( 'Page Section ', 'sthm' ),
+	description: __( 'A Rich-content slider ', 'sthm' ),
 
 	/**
 	 * Blocks are grouped into categories to help users browse and discover them.
@@ -57,14 +55,7 @@ registerBlockType( 'sthm/section', {
 	 * An icon property should be specified to make it easier to identify a block.
 	 * These can be any of WordPress’ Dashicons, or a custom svg element.
 	 */
-	icon: 'editor-insertmore',
-
-    attributes: {
-        background: { //use dropdown component
-            type: 'string',
-            default: 'uk-section-default',
-        },
-    },
+	icon: 'images-alt1',
 
 	/**
 	 * Optional block extended support features.
@@ -83,5 +74,4 @@ registerBlockType( 'sthm/section', {
 	 * @see ./save.js
 	 */
 	save: Save,
-
 } );

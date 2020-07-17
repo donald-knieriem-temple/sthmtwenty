@@ -83,7 +83,23 @@ Available blocks:
 - Heading
 	- Default gutenberg heading block
 - Icon Grid
-- 
+ 
+
+__Block Development__
+
+- blocks are built in  `/blocks` using wp-scripts:
+
+1. [Create Default Block](https://developer.wordpress.org/block-editor/packages/packages-create-block/#quick-start)
+	`npx @wordpress/create-block [options] [slug]`
+
+2. Rename [block]/[slug].php -> [block]/index.php so our theme loads it
+3. In index.php's block_init():
+	- `$script_dir_uri = get_stylesheet_directory_uri() . "/blocks/[block]/";`
+	- replace `plugins_url( [filename] ... ),` with `$script_dir_uri . [filename]`
+	- On the last line, replace `add_action( 'init' ...[block]_block_init )` with a call to `[block]_block_init()`, as this is already loaded during init() by the theme
+4. In index.js, replace `save, ` with `save: Save,` 
+5. In save.js, replace `save()` with `Save()`
+6. run `npm run build`
 
 
 ### Development Process

@@ -8,7 +8,7 @@ class Section extends Component {
 		var className = `uk-section ${ this.props.type }`;
 		return (
 
-			<div className={ className }>
+			<div className={ className } id={ this.props.anchor }>
 				{ this.props.children }
 			</div>
 		);

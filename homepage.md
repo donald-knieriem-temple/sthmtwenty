@@ -30,7 +30,7 @@ Homepage Content:
 	- Columns
 		- Breakpoint: Md (on md + smaller, go single column)
 		- Column
-			-Container
+			- Container
 				- BG: Tan
 				- Heading
 				- Paragraph

@@ -19,7 +19,7 @@ import Section from '../../../templates/components/section/section.js';
 export default function Save( props ){
 	var { 
 		className, 
-		attributes: { background },
+		attributes: { background, anchor },
 		setAttributes,
 	} = props;
 	console.log("on save: ", className, background );
@@ -27,7 +27,7 @@ export default function Save( props ){
 	
 	return (
 		//<div>asdgasdga</div>
-		<Section type={ background }>
+		<Section type={ background } anchor={ anchor }>
 			<InnerBlocks.Content />
 		</Section>
 	);

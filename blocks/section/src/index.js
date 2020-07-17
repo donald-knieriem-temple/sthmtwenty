@@ -4,8 +4,6 @@
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
 import { registerBlockType } from '@wordpress/blocks';
-import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, TextControl } from '@wordpress/components';
 
 /**
  * Retrieves the translation of text.
@@ -64,6 +62,9 @@ registerBlockType( 'sthm/section', {
             type: 'string',
             default: 'uk-section-default',
         },
+        anchor: {
+        	type: 'string',
+        }
     },
 
 	/**

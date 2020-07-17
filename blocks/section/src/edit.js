@@ -5,7 +5,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
-import { PanelBody, SelectControl, TextControl } from '@wordpress/components';
+import { Panel, PanelBody, PanelRow, SelectControl, TextControl } from '@wordpress/components';
 import Section from '../../../templates/components/section/section.js';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -32,9 +32,11 @@ export default function Edit( props ){
 	var { 
 		className, 
 		classList,
-		attributes: { background },
+		attributes: { background, anchor },
 		setAttributes,
 	} = props;
+
+	console.log("on edit: ", background)
 
 	const backgroundOptions = [
 		{ label: __( 'Default' ), value: 'uk-section-default'},
@@ -45,20 +47,25 @@ export default function Edit( props ){
 
 	return (
 		<>
-			<Section type={ background }>Section:
+			<div className={ "uk-section " + background }>Section {anchor !== undefined ? `#${anchor}` : "(No Anchor)"}
 				<InnerBlocks />
-			</Section>
+			</div>
 			<InspectorControls>
 			<PanelBody title={ __('Section Options', 'sthmtwenty') }>
-			  <SelectControl
-			    label={ __( 'Background' ) }
-			    value={ background }
-			    options={ backgroundOptions.map( ({ value, label }) => ( {
-			    value: value,
-			    label: label,
-			    } ) ) }
-			    onChange={ ( newBackground ) => setAttributes( { background: newBackground, } ) }
-			   />
+				<TextControl
+					label={ __( 'Anchor' ) }
+					value={ anchor }
+					onChange={ ( newAnchor ) => setAttributes( { anchor: newAnchor, } ) }
+				/>
+			  	<SelectControl
+				    label={ __( 'Background' ) }
+				    value={ background }
+				    options={ backgroundOptions.map( ({ value, label }) => ( {
+				    value: value,
+				    label: label,
+				    } ) ) }
+				    onChange={ ( newBackground ) => setAttributes( { background: newBackground, } ) }
+			  	/>
 			</PanelBody>
 			</InspectorControls>
 		</>

@@ -68,7 +68,6 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "storybook-readme": "^5.0.8",
     "terser-webpack-plugin": "^3.0.6",
-    "twigjs-loader": "^1.0.2",
     "uikit": "^3.5.3",
     "webpack-cli": "^3.3.12",
     "webpack-watch-time-plugin": "^0.3.0"

@@ -10,11 +10,15 @@ module.exports = {
       {
         test: /\.twig$/,
         use: [
+          { loader: 'twig-loader'  },
+          { loader: 'extract-loader' },
           {
-            loader: 'twig-loader',
+            loader: 'html-loader',
             options: {
-              autoescape: false,
-            }
+              minimize: false,
+              interpolate: true,
+              attrs: ['img:src', 'link:href'],
+            },
           },
         ],
       },

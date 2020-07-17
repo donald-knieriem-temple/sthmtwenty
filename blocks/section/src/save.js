@@ -5,8 +5,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InnerBlocks } from '@wordpress/block-editor';
-import {RawHTML } from '@wordpress/element';
-import section from '../../../templates/components/section/section.twig';
+import Section from '../../../templates/components/section/section.js';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -17,13 +16,19 @@ import section from '../../../templates/components/section/section.twig';
  *
  * @return {WPElement} Element to render.
  */
-export default function Save( { attributes, className, isSelected } )
-{	
-	const { background } = attributes;
-	return 
-	(
-			<div class="uk-section { background }">
-				<InnerBlocks.Content />
-			</div>
+export default function Save( props ){
+	var { 
+		className, 
+		attributes: { background },
+		setAttributes,
+	} = props;
+	console.log("on save: ", className, background );
+	//className += ' uk-section ' + ( background ? background : '' );
+	
+	return (
+		//<div>asdgasdga</div>
+		<Section type={ background }>
+			<InnerBlocks.Content />
+		</Section>
 	);
 }

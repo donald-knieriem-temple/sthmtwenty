@@ -1,3 +1,6 @@
+@import "./src/styles/sthm/variables";
+@import "./node_modules/bootstrap/scss/bootstrap";
+
 .uk-button.disabled, fieldset:disabled .uk-button {
     pointer-events: none;
 
@@ -8,4 +11,11 @@
     background-color: transparent;
     color: #999;
     border-color: #e5e5e5;
+}
+
+@each $color, $value in $theme-colors
+{
+	.btn-ghost-#{$color} {
+		@extend .btn-outline-#{$color};
+	}
 }

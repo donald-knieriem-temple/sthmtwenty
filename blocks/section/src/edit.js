@@ -6,7 +6,7 @@
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, TextControl } from '@wordpress/components';
-var section = require('../../../templates/components/section/section.twig');
+import Section from '../../../templates/components/section/section.js';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -14,7 +14,7 @@ var section = require('../../../templates/components/section/section.twig');
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
-
+import '../../../templates/components/section/section.scss';
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -27,10 +27,14 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 
-export default function 
-	
-/*export default function Edit( { attributes, setAttributes, className, isSelected } ) {
-	const { background } = attributes;
+export default function Edit( props ){
+
+	var { 
+		className, 
+		classList,
+		attributes: { background },
+		setAttributes,
+	} = props;
 
 	const backgroundOptions = [
 		{ label: __( 'Default' ), value: 'uk-section-default'},
@@ -39,15 +43,12 @@ export default function
 		{label: __( 'Secondary' ), value: 'uk-section-secondary'},
 	];
 
-	const output = section({type: background, body: InnerBlocks.Content() });
-	console.log(output);
-	console.log(InnerBlocks.Content());
 	return (
-		<>Section:
-			<div className={`uk-section ${ background }`}>
+		<>
+			<Section type={ background }>Section:
 				<InnerBlocks />
-			</div>
-		<InspectorControls>
+			</Section>
+			<InspectorControls>
 			<PanelBody title={ __('Section Options', 'sthmtwenty') }>
 			  <SelectControl
 			    label={ __( 'Background' ) }
@@ -59,7 +60,7 @@ export default function
 			    onChange={ ( newBackground ) => setAttributes( { background: newBackground, } ) }
 			   />
 			</PanelBody>
-		</InspectorControls>
+			</InspectorControls>
 		</>
 	);
-}*/
+}

@@ -1,3 +1,9 @@
+{% if style == 'uikit' %}
 <a class="uk-button {{type}} {{disabled ? 'disabled' : ''}}" {{href ? 'href="' ~ href ~'"' : ''}} >
     {{label}}
 </a>
+{% else %}
+a class="btn {{type}}" {{disabled ? 'tab-index="-1" sdisabled' : ''}} {{href ? "href=\"#{href}\" "}} >
+    {{label}}
+</a>
+{% endif %}

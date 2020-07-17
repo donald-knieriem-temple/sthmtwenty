@@ -3,7 +3,11 @@
   margin-top: 0px; 
 }
 
-.uk-navbar-nav > li > a 
+.uk-navbar-nav > li 
 {
-	text-transform: none;
+
+	> a 
+	{
+		text-transform: none;
+	}	
 }

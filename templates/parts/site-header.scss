@@ -31,6 +31,11 @@ header
 			{
 				color: $white-hover;
 				text-decoration: none;
+
+				&:before
+				{
+					color: $white-hover;
+				}
 			}
 		}
 	}
@@ -77,24 +82,23 @@ header
 	{
 		font-size: (13rem / $root-em);
 
+		.nav-item
+		{
+			display: flex;
+			flex-grow: 1;
+		}
+
+		.nav-link.btn
+		{
+			margin-left: (28rem / $root-em);
+			font-size: (13rem / $root-em);
+			text-transform: uppercase;
+		}
+
 		.nav-link:not(.btn)
 		{
 			border-bottom: 1px solid $divider-color;
-			@extend .py-1;
 		}
-	}
-
-	.subnav-tertiary .nav-link:not(.btn)
-	{
-		border-bottom: 1px solid $divider-color;
-		@extend .py-1;
-	}
-
-	.subnav-tertiary .nav-link.btn
-	{
-		margin-left: (28rem / $root-em);
-		font-size: (13rem / $root-em);
-		text-transform: uppercase;
 	}
 
 	.search-container
@@ -136,6 +140,10 @@ header
 			    top: 6px;
 			    font-size: (20rem / $root-em);
 
+			    // input:focus + &
+			    // {
+			    // 	color: theme-color("primary");
+			    // }
 			}
 		}
 	}
@@ -144,8 +152,6 @@ header
 	{
 		.uk-navbar-nav > li 
 		{
-			padding: 0 30px;
-
 			&:first-child > a
 			{
 				padding-left: 0;
@@ -155,6 +161,7 @@ header
 			{
 				font-size: (19rem / $root-em);
 				line-height: (21rem / $root-em);
+				padding: 0 30px;
 			
 				&:before {
 				    content: "\f078";

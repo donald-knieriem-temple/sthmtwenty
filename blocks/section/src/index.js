@@ -6,7 +6,7 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
 import { PanelBody, SelectControl, TextControl } from '@wordpress/components';
-var section = require('../../../templates/components/section/section.twig');
+import section from '../../../templates/components/section/section.twig';
 /**
  * Retrieves the translation of text.
  *
@@ -26,8 +26,8 @@ import './style.scss';
 /**
  * Internal dependencies
  */
-//import Edit from './edit';
-//import Save from './save';
+import Edit from './edit';
+import Save from './save';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -77,65 +77,11 @@ registerBlockType( 'sthm/section', {
 	/**
 	 * @see ./edit.js
 	 */
-	edit: ( props ) => {
-		const backgroundOptions = [
-			{ label: __( 'Default' ), value: 'uk-section-default'},
-			{ label: __( 'Muted' ), value: 'uk-section-muted'},
-			{ label: __( 'Primary' ), value: 'uk-section-primary'},
-			{label: __( 'Secondary' ), value: 'uk-section-secondary'},
-		];
-
-		var { 
-			className, 
-			classList,
-			attributes: { background },
-			setAttributes,
-		} = props;
-
-		//console.log(classList);
-		//console.log(className);
-
-		//className += ' uk-section ' + ( background ? background : '' );
-
-		return (
-			<>
-				<div className={ "uk-section " + background }>Section:
-					<InnerBlocks />
-				</div>
-				<InspectorControls>
-				<PanelBody title={ __('Section Options', 'sthmtwenty') }>
-				  <SelectControl
-				    label={ __( 'Background' ) }
-				    value={ background }
-				    options={ backgroundOptions.map( ({ value, label }) => ( {
-				    value: value,
-				    label: label,
-				    } ) ) }
-				    onChange={ ( newBackground ) => setAttributes( { background: newBackground, } ) }
-				   />
-				</PanelBody>
-				</InspectorControls>
-			</>
-		);
-	},
+	edit: Edit,
 
 	/**
 	 * @see ./save.js
 	 */
-	save: ( props ) => {
-		var { 
-			className, 
-			attributes: { background },
-			setAttributes,
-		} = props;
-		//console.log("on save: " + className);
-		//className += ' uk-section ' + ( background ? background : '' );
-		
-		return (
-			<div class={ "uk-section " + background }>
-				<InnerBlocks.Content />
-			</div>
-		);
-	}
+	save: Save,
 
 } );

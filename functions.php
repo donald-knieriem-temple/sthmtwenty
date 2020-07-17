@@ -231,6 +231,8 @@ class StarterSite extends Timber\Site {
 	{
 		wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/assets/css/style.css', array(), $theme_ver, 'all' );
 
+		wp_enqueue_style( 'fontawesome', get_stylesheet_directory_uri() . '/assets/css/fontawesome.min.css', array(), $theme_ver, 'all' );
+		
 		wp_enqueue_script( 'stylescript', get_stylesheet_directory_uri() . '/assets/js/style.js', array(), $theme_ver, false );
 
 		wp_enqueue_script( 'script', get_stylesheet_directory_uri() . '/assets/js/script.js', array('stylescript'), $theme_ver, false );
@@ -250,6 +252,11 @@ class StarterSite extends Timber\Site {
 	    );
 	}
 
+	/**
+	 * Register blocks as defined in the themes' blocks directory, assuming they have an index.php file in their root
+	 * @param  [type] $context [description]
+	 * @return [type]          [description]
+	 */
 	public function register_blocks( $context )
 	{
 
@@ -258,6 +265,7 @@ class StarterSite extends Timber\Site {
 		   error_log("Including " . $filename); 
 		   include $filename;
 		}
+
 	}
 
 	/** This Would return 'foo bar!'.

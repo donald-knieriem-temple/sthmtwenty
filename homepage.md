@@ -1,0 +1,65 @@
+- Header
+
+Homepage Content:
+
+- Section
+	- Section BG: Video
+	- Rich Slider
+		- Slide:
+			- Title: Text
+			- Paragraph: Text
+			- CTAs: Inner Content, allowed blocks: button
+				- Button
+				- Button
+		- Slide
+		- Slide
+		- Arrows
+		- Dotnav
+- Section
+	- Section BG: None
+	- Heading
+	- Paragraph
+	- Icons
+		- Icon
+			- Image
+			- Heading
+			- Paragraph
+		- Icon
+		- Icon
+- Section
+	- Columns
+		- Breakpoint: Md (on md + smaller, go single column)
+		- Column
+			-Container
+				- BG: Tan
+				- Heading
+				- Paragraph
+		- Column
+			- Container 
+				- BG: Cherry
+				- Link List
+					- Link
+						- Icon
+						- Text
+						- URL
+- Section
+	- Section BG: None
+	- Heading
+	- Paragraph
+	- Infographic (Toolset Block using slider)
+- Section
+	- Section BG: Tan
+	- Events Block (Toolset Block)
+		- 3 up
+		- Heading: What's Happening at STHM
+		- Events Cards
+		- View More Events Button
+- Section 
+	- Section BG: None
+	- News Block
+		- 2 up
+		- Heading: Recent News
+		- News Cards
+		- View More Stories Button		
+- Prefooter
+- Footer

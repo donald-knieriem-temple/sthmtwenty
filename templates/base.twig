@@ -27,6 +27,9 @@
 			{% endif %}
 		</section>
 
+		{% block prefooter %}
+			{% include './parts/prefooter.twig' %}
+		{% endblock %}
 		{% block footer %}
 			<footer id="footer">
 				{% include './parts/footer.twig' %}

@@ -7,3 +7,36 @@
 - 2. button ghost-yello visit
 - 3. button ghost-lightblue request info 
 #}
+
+
+{% set type =  'bg-dark' %}
+{% set containerbody %}
+{% autoescape false %}
+	<div class="row">
+		<div class="col-4">
+			<a class="btn btn-ghost-primary w-100" href="#" title="Apply to an STHM Program">Apply</a>
+		</div>
+		<div class="col-4">
+			<a class="btn btn-ghost-orange w-100" href="#" title="Visit STHM at Temple University">Visit</a>
+		</div>
+		<div class="col-4">
+			<a class="btn btn-ghost-blue w-100" href="#" title="Request More Information about an STHM Program">Request Info</a>
+		</div>
+	</div>
+	{% endautoescape %}
+{% endset %}
+{% set body %}
+	{% autoescape false %}
+	{% include "components/container/container.twig" with {
+		'contents': containerbody|raw,
+		'size': "uk-width-2-3@m"
+	 }
+	%}
+	{% endautoescape %}
+{% endset %}
+{% set bodyesc %}
+	{% autoescape false %}
+	{{ "#{body|raw}" }}
+	{% endautoescape %}
+{% endset %}
+{% include "components/section/section.twig" with {'type': type, 'body': bodyesc } %}

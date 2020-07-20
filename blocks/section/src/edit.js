@@ -40,16 +40,17 @@ export default function Edit( props ){
 
 	const backgroundOptions = [
 		{ label: __( 'Default' ), value: 'uk-section-default'},
-		{ label: __( 'Muted' ), value: 'uk-section-muted'},
-		{ label: __( 'Primary' ), value: 'uk-section-primary'},
-		{label: __( 'Secondary' ), value: 'uk-section-secondary'},
+		{ label: __( 'Cherry' ), value: 'bg-cherry'},
+		{ label: __( 'Offwhite' ), value: 'bg-offwhite'},
+		{ label: __( 'Dark Grey' ), value: 'bg-dark'},
+		{ label: __( 'Black' ), value: 'bg-black'},
 	];
 
 	return (
 		<>
-			<div className={ "uk-section " + background }>Section {anchor !== undefined ? `#${anchor}` : "(No Anchor)"}
+			<Section type={ background } anchor={ anchor }>Section #{ anchor }
 				<InnerBlocks />
-			</div>
+			</Section>
 			<InspectorControls>
 			<PanelBody title={ __('Section Options', 'sthmtwenty') }>
 				<TextControl

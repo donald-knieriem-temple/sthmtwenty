@@ -1,3 +1,50 @@
+{# - Section bg: black
+- container
+	- p addr
+	- p contact
+	- p social
+- divider
+- container
+	- grid 1/2
+		- temple logo
+		- links
+#}
 
+<div class="uk-section bg-black uk-light">
+	<div class="uk-container">
+		<p><strong><a href="{{ site.link }}">School of Sport, Tourism and Hospitality Management</a></strong><br>
+			1810 N. 13th Street<br>
+			Speakman Hall 111<br>
+			Philadelphia, PA 19122
+		</p>
+		<p>215-204-8701<br>
+			sthm@temple.edu
+		</p>
+		<p>Follow STHM on Social</p>
+		<a href="https://www.facebook.com/TempleSTHM/"><i class="fab fa-facebook-f mr-3"></i></a>
+		<a href="https://twitter.com/templesthm"><i class="fab fa-twitter mr-3"></i></a>
+		<a href="https://www.instagram.com/templesthm/"><i class="fab fa-instagram mr-3"></i></a>
+		<a href="https://www.linkedin.com/school/templesthm/"><i class="fab fa-linkedin-in mr-3"></i></a>
+		<a href="https://www.youtube.com/channel/UCqAOPnLfvFZuI6832Y47ccA"><i class="fab fa-youtube"></i></a>
+	</div>
+	<div class="uk-container my-5">
+		{% include "components/divider/divider.twig" %}
+		<span></span>
+	</div>
+	<div class="uk-container mb-5">
 
-Copyright &copy; School of Sport, Tourism and Hospitality Management {{"now"|date('Y')}}. All rights reserved.
+		<div class="uk-grid-match" uk-grid>
+			<div class="uk-width-1-2@m">
+				<div class="logo-container">
+					<a href="https://temple.edu" title="Temple University"><img class="temple-logo" src="{{ theme.path }}/assets/images/temple-logo-white.png" alt="Temple University" /></a>
+				</div>
+			</div>
+			<div class="uk-width-1-2@m">
+				Links
+			</div>
+		</div>
+	</div>
+	<div class="uk-container">
+		<p class="copyright">Copyright &copy; School of Sport, Tourism and Hospitality Management {{"now"|date('Y')}}. All rights reserved.</p>
+	</div>
+</div>

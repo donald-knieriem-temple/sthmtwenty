@@ -1,0 +1,38 @@
+footer#footer
+{
+	p
+	{
+		color: theme-color( "white" );
+	}
+
+	a
+	{
+		color: theme-color( "white" );
+
+		&:hover
+		{
+			color: theme-color( "white-hover" );
+			text-decoration: none;
+		}
+	}
+
+	.copyright
+	{
+		font-size: (17rem / $root-em);
+	}
+
+	i.fab
+	{
+		font-size: (32rem / $root-em);
+
+		&:hover
+		{
+			color: theme-color( "white-hover" );
+		}
+	}
+
+	.temple-logo
+	{
+		max-height: 108px;
+	}
+}

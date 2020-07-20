@@ -64,7 +64,10 @@ registerBlockType( 'sthm/section', {
         },
         anchor: {
         	type: 'string',
-        }
+        },
+        color: {
+        	type: 'string',
+        },
     },
 
 	/**

@@ -4,9 +4,10 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
-import { InspectorControls, InnerBlocks } from '@wordpress/block-editor';
+import { InspectorControls, InnerBlocks, withColors, PanelColorSettings } from '@wordpress/block-editor';
 import { Panel, PanelBody, PanelRow, SelectControl, TextControl } from '@wordpress/components';
 import Section from '../../../templates/components/section/section.js';
+import { compose } from '@wordpress/compose';
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -27,16 +28,18 @@ import '../../../templates/components/section/section.scss';
  * @return {WPElement} Element to render.
  */
 
-export default function Edit( props ){
+const Edit = ( props ) => {
 
 	var { 
 		className, 
 		classList,
 		attributes: { background, anchor },
 		setAttributes,
+		backgroundColor, 
+		setBackgroundColor
 	} = props;
 
-	console.log("on edit: ", background)
+	console.log("on edit: ", background, backgroundColor)
 
 	const backgroundOptions = [
 		{ label: __( 'Default' ), value: 'uk-section-default'},
@@ -48,7 +51,7 @@ export default function Edit( props ){
 
 	return (
 		<>
-			<Section type={ background } anchor={ anchor }>Section #{ anchor }
+			<Section type={ background } className={ backgroundColor.class } anchor={ anchor }>Section #{ anchor }: { backgroundColor.class }
 				<InnerBlocks />
 			</Section>
 			<InspectorControls>
@@ -58,17 +61,31 @@ export default function Edit( props ){
 					value={ anchor }
 					onChange={ ( newAnchor ) => setAttributes( { anchor: newAnchor, } ) }
 				/>
-			  	<SelectControl
-				    label={ __( 'Background' ) }
-				    value={ background }
-				    options={ backgroundOptions.map( ({ value, label }) => ( {
-				    value: value,
-				    label: label,
-				    } ) ) }
-				    onChange={ ( newBackground ) => setAttributes( { background: newBackground, } ) }
-			  	/>
+				<SelectControl
+			    label={ __( 'Background' ) }
+			    value={ background }
+			    options={ backgroundOptions.map( ({ value, label }) => ( {
+			    value: value,
+			    label: label,
+			    } ) ) }
+			    onChange={ ( newBackground ) => setAttributes( { background: newBackground, } ) }
+			   />
 			</PanelBody>
+			<PanelColorSettings
+				title={ __('Color Settings') }
+				colorSettings={[
+				{
+					value: backgroundColor.color,
+					onChange: setBackgroundColor,
+					label: __('Section Background'),
+				},
+				]}
+			/>
+
 			</InspectorControls>
 		</>
 	);
 }
+
+export default compose( 
+withColors( 'backgroundColor' ))( Edit );

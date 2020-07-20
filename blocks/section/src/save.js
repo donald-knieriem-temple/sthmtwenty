@@ -4,7 +4,7 @@
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, withColors, getColorClassName } from '@wordpress/block-editor';
 import Section from '../../../templates/components/section/section.js';
 
 /**
@@ -16,13 +16,13 @@ import Section from '../../../templates/components/section/section.js';
  *
  * @return {WPElement} Element to render.
  */
-export default function Save( props ){
+const Save = ( props ) => {
 	var { 
 		className, 
-		attributes: { background, anchor },
+		attributes: { background, anchor, backgroundColor },
 		setAttributes,
 	} = props;
-	console.log("on save: ", className, background );
+	console.log("on save: ", className, background, backgroundColor );
 	//className += ' uk-section ' + ( background ? background : '' );
 	
 	return (
@@ -32,3 +32,5 @@ export default function Save( props ){
 		</Section>
 	);
 }
+
+export default Save;

@@ -398,7 +398,16 @@ var Section = /*#__PURE__*/function (_Component) {
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Section, [{
     key: "render",
     value: function render() {
-      var className = "uk-section ".concat(this.props.type);
+      var bg = '';
+      var className = 'uk-section';
+
+      if (this.props.bg) {
+        bg = 'bg-' + this.props.bg;
+        className += " " + bg;
+      }
+
+      console.log("bg: " + bg); //var className = `uk-section ${ bg }`;
+
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
         className: className,
         id: this.props.anchor
@@ -484,34 +493,15 @@ __webpack_require__.r(__webpack_exports__);
 var Edit = function Edit(props) {
   var className = props.className,
       classList = props.classList,
-      _props$attributes = props.attributes,
-      background = _props$attributes.background,
-      anchor = _props$attributes.anchor,
+      anchor = props.attributes.anchor,
       setAttributes = props.setAttributes,
       backgroundColor = props.backgroundColor,
       setBackgroundColor = props.setBackgroundColor;
-  console.log("on edit: ", background, backgroundColor);
-  var backgroundOptions = [{
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Default'),
-    value: 'uk-section-default'
-  }, {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Cherry'),
-    value: 'bg-cherry'
-  }, {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Offwhite'),
-    value: 'bg-offwhite'
-  }, {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Dark Grey'),
-    value: 'bg-dark'
-  }, {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Black'),
-    value: 'bg-black'
-  }];
+  console.log("on edit: ", backgroundColor);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_templates_components_section_section_js__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    type: background,
-    className: backgroundColor.class,
+    className: backgroundColor && backgroundColor.slug ? "bg-" + backgroundColor.slug : '',
     anchor: anchor
-  }, "Section #", anchor, ": ", backgroundColor.class, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InnerBlocks"], null)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+  }, "Section #", anchor, ": ", backgroundColor && backgroundColor.slug ? "bg-" + backgroundColor.slug : "No Background Color", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InnerBlocks"], null)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
     title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Section Options', 'sthmtwenty')
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
     label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Anchor'),
@@ -519,22 +509,6 @@ var Edit = function Edit(props) {
     onChange: function onChange(newAnchor) {
       return setAttributes({
         anchor: newAnchor
-      });
-    }
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Background'),
-    value: background,
-    options: backgroundOptions.map(function (_ref) {
-      var value = _ref.value,
-          label = _ref.label;
-      return {
-        value: value,
-        label: label
-      };
-    }),
-    onChange: function onChange(newBackground) {
-      return setAttributes({
-        background: newBackground
       });
     }
   })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["PanelColorSettings"], {
@@ -646,7 +620,7 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('sth
     anchor: {
       type: 'string'
     },
-    color: {
+    backgroundColor: {
       type: 'string'
     }
   },
@@ -711,18 +685,14 @@ __webpack_require__.r(__webpack_exports__);
 var Save = function Save(props) {
   var className = props.className,
       _props$attributes = props.attributes,
-      background = _props$attributes.background,
       anchor = _props$attributes.anchor,
       backgroundColor = _props$attributes.backgroundColor,
       setAttributes = props.setAttributes;
-  console.log("on save: ", className, background, backgroundColor); //className += ' uk-section ' + ( background ? background : '' );
-
-  return (//<div>asdgasdga</div>
-    Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_templates_components_section_section_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      type: background,
-      anchor: anchor
-    }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InnerBlocks"].Content, null))
-  );
+  console.log("on save: ", className, backgroundColor);
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_templates_components_section_section_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    anchor: anchor,
+    bg: backgroundColor ? backgroundColor : ''
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InnerBlocks"].Content, null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Save);

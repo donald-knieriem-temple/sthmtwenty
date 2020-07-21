@@ -19,15 +19,14 @@ import Section from '../../../templates/components/section/section.js';
 const Save = ( props ) => {
 	var { 
 		className, 
-		attributes: { background, anchor, backgroundColor },
+		attributes: { anchor, backgroundColor },
 		setAttributes,
 	} = props;
-	console.log("on save: ", className, background, backgroundColor );
-	//className += ' uk-section ' + ( background ? background : '' );
+
+	console.log("on save: ", className, backgroundColor );
 	
 	return (
-		//<div>asdgasdga</div>
-		<Section type={ background } anchor={ anchor }>
+		<Section anchor={ anchor } bg={ backgroundColor ? backgroundColor : '' }>
 			<InnerBlocks.Content />
 		</Section>
 	);

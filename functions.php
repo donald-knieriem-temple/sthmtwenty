@@ -156,6 +156,60 @@ class StarterSite extends Timber\Site {
 
 		add_theme_support( 'menus' );
 
+		add_theme_support('editor-color-palette', array(
+			array(
+			  'name' => __("cherry", 'sthmtwenty'),
+			  'slug' => 'cherry',
+			  'color' => '#a42035',
+			),
+			array(
+			  'name' => __("orange", 'sthmtwenty'),
+			  'slug' => 'orange',
+			  'color' => '#fcb813',
+			),
+			array(
+			  'name' => __("blue", 'sthmtwenty'),
+			  'slug' => 'blue',
+			  'color' => '#d0Ecf6',
+			),
+			array(
+				'name' => __("dark blue", 'sthmtwenty'),
+				'slug' => 'dark-blue',
+				'color' => '#99C1D6',
+			),
+			array(
+			  'name' => __("white", 'sthmtwenty'),
+			  'slug' => 'white',
+			  'color' => '#ffffff',
+			),
+			array(
+			  'name' => __("eggshell", 'sthmtwenty'),
+			  'slug' => 'eggshell',
+			  'color' => '#F2EEE8',
+			),
+			array(
+				'name' => __("light grey", 'sthmtwenty'),
+				'slug' => 'greylight',
+				'color' => '#848484',
+			),
+			array(
+				'name' => __("grey", 'sthmtwenty'),
+				'slug' => 'grey',
+				'color' => '#707070',
+			),			
+			array(
+			  'name' => __("dark", 'sthmtwenty'),
+			  'slug' => 'dark',
+			  'color' => '#272727',
+			),
+			array(
+			  'name' => __("black", 'sthmtwenty'),
+			  'slug' => 'black',
+			  'color' => '#000000',
+			),
+
+		) );
+
 	}
 
 	public function register_menus( $context )

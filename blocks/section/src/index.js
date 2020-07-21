@@ -65,7 +65,7 @@ registerBlockType( 'sthm/section', {
         anchor: {
         	type: 'string',
         },
-        color: {
+        backgroundColor: {
         	type: 'string',
         },
     },

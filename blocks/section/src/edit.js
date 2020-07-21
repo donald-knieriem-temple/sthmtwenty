@@ -33,25 +33,17 @@ const Edit = ( props ) => {
 	var { 
 		className, 
 		classList,
-		attributes: { background, anchor },
+		attributes: { anchor },
 		setAttributes,
-		backgroundColor, 
+		backgroundColor,
 		setBackgroundColor
 	} = props;
 
-	console.log("on edit: ", background, backgroundColor)
-
-	const backgroundOptions = [
-		{ label: __( 'Default' ), value: 'uk-section-default'},
-		{ label: __( 'Cherry' ), value: 'bg-cherry'},
-		{ label: __( 'Offwhite' ), value: 'bg-offwhite'},
-		{ label: __( 'Dark Grey' ), value: 'bg-dark'},
-		{ label: __( 'Black' ), value: 'bg-black'},
-	];
+	console.log("on edit: ", backgroundColor)
 
 	return (
 		<>
-			<Section type={ background } className={ backgroundColor.class } anchor={ anchor }>Section #{ anchor }: { backgroundColor.class }
+			<Section className={ backgroundColor && backgroundColor.slug ? "bg-" + backgroundColor.slug : '' } anchor={ anchor }>Section #{ anchor }: { backgroundColor && backgroundColor.slug ? "bg-" + backgroundColor.slug : "No Background Color" }
 				<InnerBlocks />
 			</Section>
 			<InspectorControls>
@@ -61,22 +53,13 @@ const Edit = ( props ) => {
 					value={ anchor }
 					onChange={ ( newAnchor ) => setAttributes( { anchor: newAnchor, } ) }
 				/>
-				<SelectControl
-			    label={ __( 'Background' ) }
-			    value={ background }
-			    options={ backgroundOptions.map( ({ value, label }) => ( {
-			    value: value,
-			    label: label,
-			    } ) ) }
-			    onChange={ ( newBackground ) => setAttributes( { background: newBackground, } ) }
-			   />
 			</PanelBody>
 			<PanelColorSettings
 				title={ __('Color Settings') }
 				colorSettings={[
 				{
 					value: backgroundColor.color,
-					onChange: setBackgroundColor,
+					onChange: setBackgroundColor, 
 					label: __('Section Background'),
 				},
 				]}

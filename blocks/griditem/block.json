@@ -1,9 +1,9 @@
 {
-	"name": "sthm/section",
-	"title": "Section",
+	"name": "sthm/griditem",
+	"title": "Grid Item",
 	"category": "sthm",
-	"icon": "editor-insertmore",
-	"description": "Page Section ",
+	"icon": "schedule",
+	"description": "UIKit Section Grid Item",
 	"textdomain": "sthm",
 	"supports": {
 		"html": false

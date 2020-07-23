@@ -5,7 +5,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InnerBlocks, withColors, getColorClassName } from '@wordpress/block-editor';
-import Section from '../../../templates/components/section/section.js';
+import Grid from '../../../templates/components/grid/grid.js';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -17,18 +17,18 @@ import Section from '../../../templates/components/section/section.js';
  * @return {WPElement} Element to render.
  */
 const Save = ( props ) => {
+
 	var { 
 		className, 
-		attributes: { anchor, backgroundColor },
+		attributes: { divider, gap, match, childWidthS, childWidthM, childWidthL, childWidthXL },
 		setAttributes,
 	} = props;
-
-	//console.log("on save: ", className, backgroundColor );
 	
 	return (
-		<Section anchor={ anchor } bg={ backgroundColor ? backgroundColor : '' }>
+		<Grid divider={ divider } gap={ gap } match={ match } childWidthS={ childWidthS } 
+			childWidthM={ childWidthM } childWidthL={ childWidthL } childWidthXL={ childWidthXL }>
 			<InnerBlocks.Content />
-		</Section>
+		</Grid>
 	);
 }
 

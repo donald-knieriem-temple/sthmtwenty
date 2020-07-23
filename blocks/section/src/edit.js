@@ -43,7 +43,9 @@ const Edit = ( props ) => {
 
 	return (
 		<>
-			<Section className={ backgroundColor && backgroundColor.slug ? "bg-" + backgroundColor.slug : '' } anchor={ anchor }>Section #{ anchor }: { backgroundColor && backgroundColor.slug ? "bg-" + backgroundColor.slug : "No Background Color" }
+			<Section className={ backgroundColor && backgroundColor.slug ? "bg-" + backgroundColor.slug : '' } 
+			anchor={ anchor }>
+				Section #{ anchor }: { backgroundColor && backgroundColor.slug ? "bg-" + backgroundColor.slug : "No Background Color" }
 				<InnerBlocks />
 			</Section>
 			<InspectorControls>

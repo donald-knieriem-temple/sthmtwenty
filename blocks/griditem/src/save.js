@@ -5,7 +5,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InnerBlocks, withColors, getColorClassName } from '@wordpress/block-editor';
-import Section from '../../../templates/components/section/section.js';
+import GridItem from '../../../templates/components/griditem/griditem.js';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -19,16 +19,16 @@ import Section from '../../../templates/components/section/section.js';
 const Save = ( props ) => {
 	var { 
 		className, 
-		attributes: { anchor, backgroundColor },
+		attributes: { backgroundColor, widthS, widthM, widthL, widthXL },
 		setAttributes,
 	} = props;
 
-	//console.log("on save: ", className, backgroundColor );
 	
 	return (
-		<Section anchor={ anchor } bg={ backgroundColor ? backgroundColor : '' }>
+		<GridItem widthS={ widthS } 
+			widthM={ widthM } widthL={ widthL } widthS={ widthXL } bg={ backgroundColor ? backgroundColor : '' }>
 			<InnerBlocks.Content />
-		</Section>
+		</GridItem>
 	);
 }
 

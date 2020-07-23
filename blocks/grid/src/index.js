@@ -32,18 +32,18 @@ import Save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType( 'sthm/section', {
+registerBlockType( 'sthm/grid', {
 	/**
 	 * This is the display title for your block, which can be translated with `i18n` functions.
 	 * The block inserter will show this name.
 	 */
-	title: __( 'Section', 'sthm' ),
+	title: __( 'Grid', 'sthm' ),
 
 	/**
 	 * This is a short description for your block, can be translated with `i18n` functions.
 	 * It will be shown in the Block Tab in the Settings Sidebar.
 	 */
-	description: __( 'Page Section ', 'sthm' ),
+	description: __( 'Section Grid ', 'sthm' ),
 
 	/**
 	 * Blocks are grouped into categories to help users browse and discover them.
@@ -55,14 +55,35 @@ registerBlockType( 'sthm/section', {
 	 * An icon property should be specified to make it easier to identify a block.
 	 * These can be any of WordPress’ Dashicons, or a custom svg element.
 	 */
-	icon: 'editor-insertmore',
+	icon: 'grid-view',
 
     attributes: {
-        anchor: {
+        divider: { 
+            type: 'bool',
+            default: false,
+        },
+        flex: {
         	type: 'string',
         },
-        backgroundColor: {
-        	type: 'string',
+		gap: { 
+		    type: 'bool',
+		    default: false,
+		},
+		match: { 
+            type: 'bool',
+            default: false,
+        },
+        childWidthS: { 
+            type: 'string',
+        }, 
+        childWidthM: { 
+            type: 'string',
+        }, 
+        childWidthL: { 
+            type: 'string',
+        }, 
+        childWidthXL: { 
+            type: 'string',
         },
     },
 

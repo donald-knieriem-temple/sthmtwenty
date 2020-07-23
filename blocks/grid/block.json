@@ -1,9 +1,9 @@
 {
-	"name": "sthm/section",
-	"title": "Section",
+	"name": "sthm/grid",
+	"title": "Grid",
 	"category": "sthm",
-	"icon": "editor-insertmore",
-	"description": "Page Section ",
+	"icon": "grid-view",
+	"description": "UIKit Section Grid",
 	"textdomain": "sthm",
 	"supports": {
 		"html": false

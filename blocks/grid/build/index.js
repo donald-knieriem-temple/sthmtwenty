@@ -349,10 +349,10 @@ module.exports = _typeof;
 
 /***/ }),
 
-/***/ "../../templates/components/section/section.js":
-/*!***********************************************************************************************************!*\
-  !*** /Users/tul07909/dev/lando/sthm/wp-content/themes/sthmtwenty/templates/components/section/section.js ***!
-  \***********************************************************************************************************/
+/***/ "../../templates/components/grid/grid.js":
+/*!*****************************************************************************************************!*\
+  !*** /Users/tul07909/dev/lando/sthm/wp-content/themes/sthmtwenty/templates/components/grid/grid.js ***!
+  \*****************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -383,46 +383,68 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
-var Section = /*#__PURE__*/function (_Component) {
-  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2___default()(Section, _Component);
+var Grid = /*#__PURE__*/function (_Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2___default()(Grid, _Component);
 
-  var _super = _createSuper(Section);
+  var _super = _createSuper(Grid);
 
-  function Section() {
-    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Section);
+  function Grid() {
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Grid);
 
     return _super.apply(this, arguments);
   }
 
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Section, [{
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Grid, [{
     key: "render",
     value: function render() {
-      var bg = '';
-      var className = 'uk-section';
+      var className = '';
 
-      if (this.props.bg) {
-        bg = 'bg-' + this.props.bg;
-        className += " " + bg;
+      if (this.props.gap) {
+        "".concat(this.props.gap);
+      }
+
+      if (this.props.divider) {
+        className += ' uk-grid-divider';
+      }
+
+      if (this.props.match) {
+        className += ' uk-grid-match';
+      }
+
+      if (this.props.childWidthS) {
+        className += " ".concat(this.props.childWidthS, "@s");
+      }
+
+      if (this.props.childWidthM) {
+        className += " ".concat(this.props.childWidthM, "@m");
+      }
+
+      if (this.props.childWidthL) {
+        className += " ".concat(this.props.childWidthL, "@l");
+      }
+
+      if (this.props.childWidthXL) {
+        className += " ".concat(this.props.childWidthXL, "@xl");
       }
 
       return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
         className: className,
-        id: this.props.anchor
+        "data-uk-grid": true
       }, this.props.children);
     }
   }]);
 
-  return Section;
+  return Grid;
 }(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Section);
+/* harmony default export */ __webpack_exports__["default"] = (Grid);
 
 /***/ }),
 
-/***/ "../../templates/components/section/section.scss":
-/*!*************************************************************************************************************!*\
-  !*** /Users/tul07909/dev/lando/sthm/wp-content/themes/sthmtwenty/templates/components/section/section.scss ***!
-  \*************************************************************************************************************/
+/***/ "../../templates/components/grid/grid.scss":
+/*!*******************************************************************************************************!*\
+  !*** /Users/tul07909/dev/lando/sthm/wp-content/themes/sthmtwenty/templates/components/grid/grid.scss ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -447,13 +469,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _templates_components_section_section_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../templates/components/section/section.js */ "../../templates/components/section/section.js");
+/* harmony import */ var _templates_components_grid_grid_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../templates/components/grid/grid.js */ "../../templates/components/grid/grid.js");
 /* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
 /* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_editor_scss__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _templates_components_section_section_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../templates/components/section/section.scss */ "../../templates/components/section/section.scss");
-/* harmony import */ var _templates_components_section_section_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_templates_components_section_section_scss__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _templates_components_grid_grid_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../templates/components/grid/grid.scss */ "../../templates/components/grid/grid.scss");
+/* harmony import */ var _templates_components_grid_grid_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_templates_components_grid_grid_scss__WEBPACK_IMPORTED_MODULE_7__);
 
 
 /**
@@ -489,36 +511,136 @@ __webpack_require__.r(__webpack_exports__);
 
 var Edit = function Edit(props) {
   var className = props.className,
-      classList = props.classList,
-      anchor = props.attributes.anchor,
-      setAttributes = props.setAttributes,
-      backgroundColor = props.backgroundColor,
-      setBackgroundColor = props.setBackgroundColor;
-  console.log("on edit: ", backgroundColor);
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_templates_components_section_section_js__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    className: backgroundColor && backgroundColor.slug ? "bg-" + backgroundColor.slug : '',
-    anchor: anchor
-  }, "Section #", anchor, ": ", backgroundColor && backgroundColor.slug ? "bg-" + backgroundColor.slug : "No Background Color", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InnerBlocks"], null)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Section Options', 'sthmtwenty')
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["TextControl"], {
-    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Anchor'),
-    value: anchor,
-    onChange: function onChange(newAnchor) {
+      _props$attributes = props.attributes,
+      divider = _props$attributes.divider,
+      gap = _props$attributes.gap,
+      match = _props$attributes.match,
+      childWidthS = _props$attributes.childWidthS,
+      childWidthM = _props$attributes.childWidthM,
+      childWidthL = _props$attributes.childWidthL,
+      childWidthXL = _props$attributes.childWidthXL,
+      setAttributes = props.setAttributes;
+  var ALLOWED_BLOCKS = ['sthm/griditem'];
+  var widthOptions = [{
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Default'),
+    value: ''
+  }, {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('1-1'),
+    value: 'uk-child-width-1-1'
+  }, {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('1-2'),
+    value: 'uk-child-width-1-2'
+  }, {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('1-3'),
+    value: 'uk-child-width-1-3'
+  }, {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('2-3'),
+    value: 'uk-child-width-2-3'
+  }, {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('1-4'),
+    value: 'uk-child-width-1-4'
+  }, {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('3-4'),
+    value: 'uk-child-width-3-4'
+  }, {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('1-5'),
+    value: 'uk-child-width-1-5'
+  }, {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('2-5'),
+    value: 'uk-child-width-2-5'
+  }, {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('3-5'),
+    value: 'uk-child-width-3-5'
+  }, {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('4-5'),
+    value: 'uk-child-width-4-5'
+  }, {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('1-6'),
+    value: 'uk-child-width-1-6'
+  }, {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('5-6'),
+    value: 'uk-child-width-5-6'
+  }];
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_templates_components_grid_grid_js__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    divider: divider,
+    gap: gap,
+    match: match,
+    childWidthS: childWidthS,
+    childWidthM: childWidthM,
+    childWidthL: childWidthL,
+    childWidthXL: childWidthXL
+  }, "Grid", Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InnerBlocks"], {
+    allowedBlocks: ALLOWED_BLOCKS
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["PanelBody"], {
+    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Grid Options', 'sthmtwenty')
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Width @S'),
+    value: childWidthS,
+    options: widthOptions.map(function (_ref) {
+      var value = _ref.value,
+          label = _ref.label;
+      return {
+        value: value,
+        label: label
+      };
+    }),
+    onChange: function onChange(newWidth) {
       return setAttributes({
-        anchor: newAnchor
+        childWidthS: newWidth
       });
     }
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["PanelColorSettings"], {
-    title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Color Settings'),
-    colorSettings: [{
-      value: backgroundColor.color,
-      onChange: setBackgroundColor,
-      label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Section Background')
-    }]
-  })));
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Width @M'),
+    value: childWidthM,
+    options: widthOptions.map(function (_ref2) {
+      var value = _ref2.value,
+          label = _ref2.label;
+      return {
+        value: value,
+        label: label
+      };
+    }),
+    onChange: function onChange(newWidth) {
+      return setAttributes({
+        childWidthM: newWidth
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Width @L'),
+    value: childWidthL,
+    options: widthOptions.map(function (_ref3) {
+      var value = _ref3.value,
+          label = _ref3.label;
+      return {
+        value: value,
+        label: label
+      };
+    }),
+    onChange: function onChange(newWidth) {
+      return setAttributes({
+        childWidthL: newWidth
+      });
+    }
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__["SelectControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Width @XL'),
+    value: childWidthXL,
+    options: widthOptions.map(function (_ref4) {
+      var value = _ref4.value,
+          label = _ref4.label;
+      return {
+        value: value,
+        label: label
+      };
+    }),
+    onChange: function onChange(newWidth) {
+      return setAttributes({
+        childWidthXL: newWidth
+      });
+    }
+  }))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_wordpress_compose__WEBPACK_IMPORTED_MODULE_5__["compose"])(Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["withColors"])('backgroundColor'))(Edit));
+/* harmony default export */ __webpack_exports__["default"] = (Edit);
 
 /***/ }),
 
@@ -584,18 +706,18 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
 
-Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('sthm/section', {
+Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('sthm/grid', {
   /**
    * This is the display title for your block, which can be translated with `i18n` functions.
    * The block inserter will show this name.
    */
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Section', 'sthm'),
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Grid', 'sthm'),
 
   /**
    * This is a short description for your block, can be translated with `i18n` functions.
    * It will be shown in the Block Tab in the Settings Sidebar.
    */
-  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Page Section ', 'sthm'),
+  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])('Section Grid ', 'sthm'),
 
   /**
    * Blocks are grouped into categories to help users browse and discover them.
@@ -607,12 +729,33 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('sth
    * An icon property should be specified to make it easier to identify a block.
    * These can be any of WordPress’ Dashicons, or a custom svg element.
    */
-  icon: 'editor-insertmore',
+  icon: 'grid-view',
   attributes: {
-    anchor: {
+    divider: {
+      type: 'bool',
+      default: false
+    },
+    flex: {
       type: 'string'
     },
-    backgroundColor: {
+    gap: {
+      type: 'bool',
+      default: false
+    },
+    match: {
+      type: 'bool',
+      default: false
+    },
+    childWidthS: {
+      type: 'string'
+    },
+    childWidthM: {
+      type: 'string'
+    },
+    childWidthL: {
+      type: 'string'
+    },
+    childWidthXL: {
       type: 'string'
     }
   },
@@ -653,7 +796,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _templates_components_section_section_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../templates/components/section/section.js */ "../../templates/components/section/section.js");
+/* harmony import */ var _templates_components_grid_grid_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../templates/components/grid/grid.js */ "../../templates/components/grid/grid.js");
 
 
 /**
@@ -677,13 +820,22 @@ __webpack_require__.r(__webpack_exports__);
 var Save = function Save(props) {
   var className = props.className,
       _props$attributes = props.attributes,
-      anchor = _props$attributes.anchor,
-      backgroundColor = _props$attributes.backgroundColor,
-      setAttributes = props.setAttributes; //console.log("on save: ", className, backgroundColor );
-
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_templates_components_section_section_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    anchor: anchor,
-    bg: backgroundColor ? backgroundColor : ''
+      divider = _props$attributes.divider,
+      gap = _props$attributes.gap,
+      match = _props$attributes.match,
+      childWidthS = _props$attributes.childWidthS,
+      childWidthM = _props$attributes.childWidthM,
+      childWidthL = _props$attributes.childWidthL,
+      childWidthXL = _props$attributes.childWidthXL,
+      setAttributes = props.setAttributes;
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_templates_components_grid_grid_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    divider: divider,
+    gap: gap,
+    match: match,
+    childWidthS: childWidthS,
+    childWidthM: childWidthM,
+    childWidthL: childWidthL,
+    childWidthXL: childWidthXL
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__["InnerBlocks"].Content, null));
 };
 

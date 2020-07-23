@@ -1,11 +1,19 @@
-import React, { Component } from 'react';
+import { Component } from '@wordpress/element';
 
 
 class Section extends Component {
 
 	render()
 	{
-		var className = `uk-section ${ this.props.type }`;
+		var bg = '';
+		var className = 'uk-section';
+		if(this.props.bg)
+		{
+			bg = 'bg-' + this.props.bg;
+			className += " " + bg;
+
+		}
+		
 		return (
 
 			<div className={ className } id={ this.props.anchor }>

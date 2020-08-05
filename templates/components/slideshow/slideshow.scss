@@ -1,0 +1,9 @@
+@import "./src/styles/sthm/variables";
+
+.uk-light
+{
+	.uk-slideshow-items 
+	{
+		color: map-get($theme-colors, "white");
+	}
+}

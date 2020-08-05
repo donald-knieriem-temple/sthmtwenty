@@ -9,20 +9,21 @@ $theme-colors: (
   "blue": #d0Ecf6,
   "darkblue": #99c1d6,
   "white": #ffffff,
-  "white-hover": rgba(255, 255, 255, 0.7),
+  "white-hover": rgba(255, 255, 255, 0.70),
   "eggshell": #F2EEE8,
   "greylight": #848484,
   "grey": #707070,
   "dark": #272727,
   "black": #000000,
-  "overlaylight": #00000059,
-  "overlaydark": #00000099,
+  "overlaylight": rgba(0, 0, 0, 0.35),
+  "overlaydark": rgba(0, 0, 0, 0.60),
+  "herooverlay": rgba(0, 0, 0, 0.50),
 );
 
 $white: #ffffff;
 $black: #000000;
 $divider-color: #848484;
-$white-hover: rgba(255, 255, 255, 0.7);
+$white-hover: rgba(255, 255, 255, 0.70);
 /* Fonts */
 $sthm-heading-font: 'Faustina', serif;
 $sthm-heading-weight: 600;

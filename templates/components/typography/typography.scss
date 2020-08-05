@@ -25,3 +25,14 @@
 		color: $black;
 	}
 }
+
+@each $color, $value in $theme-colors
+{
+	.has-#{$color}-color {
+		@extend .text-#{$color};
+	}
+
+	.has-#{$color}-background-color {
+		@extend .bg-#{$color};
+	}
+}

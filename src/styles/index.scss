@@ -1,31 +1,33 @@
-//$global-link-color: #DA7D02;
+@import "uikit/src/scss/variables-theme";
+@import "uikit/src/scss/mixins-theme";
+/* 1.0 Import default variables and available mixins. */
 
-// 1.0 Import default variables and available mixins.
-@import "../../node_modules/uikit/src/scss/variables-theme.scss";
-@import "../../node_modules/uikit/src/scss/mixins-theme.scss";
-
-
-// 1.1 Your custom mixin overwrites.
+/*1.1 Your custom mixin overwrites.*/
 //@mixin hook-card() { color: #000; }
-@import 'sthm/uikit';
+@import "sthm/uikit";
 
-// 1.2. Import UIkit.
-@import "uikit/src/scss/uikit-theme.scss";
+/*1.2. Import UIkit.*/
+@import "uikit/src/scss/uikit-theme";
+//@import "uikit/src/scss/theme/import";
 
-// 2. Reset WP styles
+//@import "uikit/src/scss/components/import";
+
+//@import "../../node_modules/uikit/src/scss/uikit-theme";
+
+/*2. Reset WP styles*/
 @import 'sthm/wp-reset';
 
-// 3.0 Customize Bootstrap
+/*3.0 Customize Bootstrap*/
 @import 'sthm/bootstrap';
 
-// 3.1 Import Bootstrap
-@import "../../node_modules/bootstrap/scss/bootstrap";
+/*3.1 Import Bootstrap*/
+@import '../../node_modules/bootstrap/scss/bootstrap';
 
-// 4. Site Customization
+/*4. Site Customization*/
 @import 'sthm/variables';
 @import 'templates/parts/site-header';
 
-// 5. Component styles
+/*5. Component styles*/
 @import 'templates/components/accordion/accordion';
 @import 'templates/components/breadcrumb/breadcrumb';
 @import 'templates/components/button/button';
@@ -33,8 +35,7 @@
 @import 'templates/components/form/form';
 @import 'templates/components/navbar/navbar';
 @import 'templates/components/section/section';
-@import 'templates/components/section/slideshow';
+@import 'templates/components/slideshow/slideshow';
+@import 'templates/components/slidenav/slidenav';
+@import 'templates/components/dotnav/dotnav';
 @import 'templates/components/typography/typography';
-
-// 6. Blocks
-//@import 'blocks/section/src/style';

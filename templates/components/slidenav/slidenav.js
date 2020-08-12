@@ -1,41 +1,54 @@
 import { Component } from '@wordpress/element';
 
-
 class Slidenav extends Component {
 
 	render()
 	{
 
-		var classNamePrev = '';
-		var classNameNext = '';
-		if(this.props.large){
-			classNamePrev += 'uk-slidenav-large';
-			classNameNext += 'uk-slidenav-large';
+		var classNamePrev = [];
+		var classNameNext = [];
+
+		if( this.props.large ){
+			classNamePrev.push('uk-slidenav-large');
+			classNameNext.push('uk-slidenav-large');
 		} else {
-			classNamePrev += 'uk-slidenav';
-			classNameNext += 'uk-slidenav';
+			classNamePrev.push('uk-slidenav');
+			classNameNext.push('uk-slidenav');
 		}
+
 		if( this.props.positionPrev ){
-			classNamePrev += " " + positionPrev.join(' ');
+			classNamePrev.push( ...this.props.positionPrev );
 		}
 
 		if( this.props.positionNext ){
-			classNameNext += " " + positionNext.join(' ');
+			classNameNext.push( ...this.props.positionNext );
 		}
 		
-		if( this.props.hover){
-			classNamePrev += ' uk-hidden-hover';
-			classNameNext += ' uk-hidden-hover';
+		if( this.props.hover ){
+			classNamePrev.push('uk-hidden-hover');
+			classNameNext.push('uk-hidden-hover');
 		}
 
-		let key = `data-uk-${this.props.for}-item`;
-		const apropsprev = { key: 'previous'};
-		const apropsnext = { key: 'next'};
-		return 
-		(
+		let key = `uk-${this.props.for}-item`;
+
+		const apropsprev = {};
+		const apropsnext = {}; 
+		
+		apropsprev[key] = 'previous';
+		apropsnext[key] = 'next';
+
+		apropsprev['uk-slidenav-previous'] = "";
+		apropsnext['uk-slidenav-next'] = "";
+
+		apropsprev['uk--item'] = "previous";
+		apropsnext['uk--item'] = "next";
+
+		console.log(apropsprev, apropsnext);
+
+		return (
 			<>
-				<a className={ classNamePrev } href="#" data-uk-slidenav-previous { ... apropsprev }></a>//
-				<a className={ classNameNext } href="#" data-uk-slidenav-next { ... apropsnext }></a>
+				<a className={ classNamePrev.join(' ') } href={""} { ... apropsprev }></a>
+				<a className={ classNameNext.join(' ') } href={""} { ... apropsnext }></a>
 			</>
 		);
 	

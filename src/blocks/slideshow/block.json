@@ -1,0 +1,44 @@
+{
+	"name": "sthm/slideshow",
+	"title": "Slideshow",
+	"category": "sthm",
+	"icon": "format-gallery",
+	"description": "Slideshow",
+	"textdomain": "sthm",
+	"supports": {
+		"html": false
+	},
+	 "attributes": {
+        "anchor": {
+        	"type": "string"
+        },
+        "animation": {
+        	"type": "string"
+        },
+        "autoplay": {
+        	"type": "boolean"
+        },
+        "finite": {
+        	"type": "boolean"
+        },
+        "ratio": {
+        	"type": "string"
+        },
+        "minHeight": {
+        	"type": "string"
+        },
+        "maxHeight": {
+        	"type": "string"
+        },
+        "hasNav": {
+        	"type": "boolean"
+        },
+        "hasDotnav": {
+        	"type": "boolean"
+        },
+        "numItems": {
+        	"type": "number",
+        	"default": 0
+        }
+    }
+}

@@ -2,7 +2,7 @@
   "name": "sthmtwenty",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "assets/index.js",
   "directories": {
     "test": "test"
   },
@@ -19,8 +19,9 @@
   "homepage": "https://github.com/donald-knieriem-temple/sthmtwenty#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "start": "webpack --watch",
+    "start": "wp-scripts start src/index.js src/blocks.js --progress",
+    "build": "wp-scripts build",
+    "lint:js": "wp-scripts lint-js src/blocks/blocks.js",
     "storybook": "start-storybook -p 9009",
     "build-storybook": "build-storybook -o docs",
     "chromatic": "npx chromatic --project-token=i01vw1riaxr"
@@ -29,7 +30,6 @@
     "@babel/core": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
     "@fortawesome/fontawesome-free": "^5.13.1",
-    "autoprefixer": "^9.8.4",
     "babel-loader": "^8.1.0",
     "bootstrap": "^4.5.0",
     "core-js": "^3.6.5",
@@ -69,13 +69,19 @@
     "@wordpress/i18n": "^3.14.0",
     "@wordpress/prettier-config": "^0.3.0",
     "@wordpress/scripts": "^12.1.1",
+    "autoprefixer": "^9.8.6",
     "extract-loader": "^5.1.0",
     "html-react-parser": "^0.13.0",
+    "node-sass-glob-importer": "^5.3.2",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss": "^7.0.32",
+    "postcss-preset-env": "^6.7.0",
+    "rtlcss-webpack-plugin": "^4.0.3",
     "storybook-readme": "^5.0.8",
     "terser-webpack-plugin": "^3.0.6",
     "uikit": "^3.5.3",
     "webpack-cli": "^3.3.12",
+    "webpack-fix-style-only-entries": "^0.5.1",
     "webpack-watch-time-plugin": "^0.3.0"
   }
 }

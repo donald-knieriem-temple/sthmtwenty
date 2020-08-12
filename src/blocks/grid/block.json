@@ -1,0 +1,40 @@
+{
+	"name": "sthm/grid",
+	"title": "Grid",
+	"category": "sthm",
+	"icon": "grid-view",
+	"description": "UIKit Section Grid",
+	"textdomain": "sthm",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+        "divider": { 
+            "type": "bool",
+            "default": false
+        },
+        "flex": {
+        	"type": "string"
+        },
+		"gap": { 
+		    "type": "bool",
+		    "default": false
+		},
+		"match": { 
+            "type": "bool",
+            "default": false
+        },
+        "childWidthS": { 
+            "type": "string"
+        }, 
+        "childWidthM": { 
+            "type": "string"
+        }, 
+        "childWidthL": { 
+            "type": "string"
+        }, 
+        "childWidthXL": { 
+            "type": "string"
+        }
+    }
+}

@@ -5,24 +5,25 @@ class Grid extends Component {
 
 	render()
 	{
-		var className = '';
+		var newClassName = this.props.className != '' ? `${this.props.className}` : '';
 		if( this.props.gap )
-			{ `${ this.props.gap }`; }
+			{ newClassName += ` ${ this.props.gap }`; }
 		if( this.props.divider )
-			{ className += ' uk-grid-divider'; }
+			{ newClassName += ' uk-grid-divider'; }
 		if( this.props.match )
-			{ className += ' uk-grid-match'; }
+			{ newClassName += ' uk-grid-match'; }
 		if( this.props.childWidthS )
-			{ className += ` ${ this.props.childWidthS }@s`; }
+			{ newClassName += ` ${ this.props.childWidthS }@s`; }
 		if( this.props.childWidthM )
-			{ className += ` ${ this.props.childWidthM }@m`; }
+			{ newClassName += ` ${ this.props.childWidthM }@m`; }
 		if( this.props.childWidthL )
-			{ className += ` ${ this.props.childWidthL }@l`; }
+			{ newClassName += ` ${ this.props.childWidthL }@l`; }
 		if( this.props.childWidthXL )
-			{ className += ` ${ this.props.childWidthXL }@xl`; }
+			{ newClassName += ` ${ this.props.childWidthXL }@xl`; }
 
+		console.log( "new class name", newClassName);
 		return (
-			<div className={ className } data-uk-grid>
+			<div className={ newClassName } data-uk-grid>
 				{ this.props.children }
 			</div>
 		);

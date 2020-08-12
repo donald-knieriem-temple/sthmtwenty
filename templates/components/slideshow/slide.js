@@ -17,6 +17,7 @@ class SlideshowItem extends Component {
             classes = [ "uk-overlay", "uk-overlay-primary", "uk-position-bottom", "uk-text-center", "uk-transition-slide-bottom" ];
         }
 
+        classes.push("slideshow__slide");
         return (
            <li>
             { this.props.mediaUrl  && 

@@ -1,0 +1,46 @@
+{
+	"name": "sthm/griditem",
+	"title": "Grid Item",
+	"category": "sthm",
+	"icon": "schedule",
+	"description": "Section Grid Item",
+	"textdomain": "sthm",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+        "divider": { 
+            "type": "bool",
+            "default": false
+        },
+        "flex": {
+        	"type": "string"
+        },
+		"gap": { 
+		    "type": "bool",
+		    "default": false
+		},
+		"match": { 
+            "type": "bool",
+            "default": false
+        },
+        "widthS": { 
+            "type": "string"
+        }, 
+        "widthM": { 
+            "type": "string"
+        }, 
+        "widthL": { 
+            "type": "string"
+        }, 
+        "widthXL": { 
+            "type": "string"
+        },
+        "backgroundColor": {
+        	"type": "string"
+        },
+        "padding": {
+        	"type": "string"
+        }
+    }
+}

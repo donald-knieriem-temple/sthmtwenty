@@ -5,28 +5,33 @@ class Dotnav extends Component {
 	render()
 	{
 		const attributeIndex = this.props.attributeIndex;
-		const items = this.props.items;
-		var itemProps = items.map(function(item, index){
-		var liprops = {};
-			if(attributeIndex){
+		const position = this.props.position;
+		position.push("dotnav--container");
+		const items = [];
+		for( var index = 0; index < this.props.numItems; index++ )
+		{
+			var liprops = {};
+
+			if( attributeIndex ){
 				let key = `data-${attributeIndex}`;
-				let val = `${loop.index0}`;
+				let val = index;
 			 	liprops[key] = val;
 			}
 
-			if(item.active){
+			if( index === 0 ){
 				liprops['className'] = 'uk-active';
 			}
-		});
+			items.push(<li key={ index } { ... liprops}><a href={ "#" }></a></li>);
+		}
 		
-		return 
-		(
-			<div className={ this.props.position|join(' ') }>
-				<ul className="uk-dotnav">
-					for( [index, item] in Object.entries(this.props.items) )
-					{
-						<li { ... liprops}><a href={ item.href }></a></li>
-					}	
+		//console.log("in dotnav",items);
+
+		//return (<p> Text</p>);
+
+		return (
+			<div className={ position.join(' ') } >
+				<ul className={"uk-dotnav"}>
+					{ items }
 				</ul>
 			</div>
 		);

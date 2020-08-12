@@ -6,27 +6,27 @@ class GridItem extends Component {
 	render()
 	{
 		var bg = '';
-		var className = '';
+		var newClassName = this.props.className != '' ? `${this.props.className}` : '';
 		if(this.props.bg)
 		{
-			bg = 'bg-' + this.props.bg;
-			className += " " + bg;
-
+			newClassName += " bg-" + this.props.bg;
 		}
 		
 		if( this.props.widthS )
-			{ className += ` ${ this.props.widthS }@s`; }
+			{ newClassName += ` ${ this.props.widthS }@s`; }
 		if( this.props.widthM )
-			{ className += ` ${ this.props.widthM }@m`; }
+			{ newClassName += ` ${ this.props.widthM }@m`; }
 		if( this.props.widthL )
-			{ className += ` ${ this.props.widthL }@l`; }
+			{ newClassName += ` ${ this.props.widthL }@l`; }
 		if( this.props.widthXL )
-			{ className += ` ${ this.props.widthXL }@xl`; }
+			{ newClassName += ` ${ this.props.widthXL }@xl`; }
 		
 		return (
 
-			<div className={ className }>
-				{ this.props.children }
+			<div className={ newClassName }>
+				<div className={ this.props.padding }>
+					{ this.props.children }
+				</div>
 			</div>
 		);
 	}

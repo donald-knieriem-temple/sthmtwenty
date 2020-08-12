@@ -14,6 +14,8 @@ if ( file_exists('.ver') )
 	$theme_ver = '1.0.0'; //default
 }
 
+define( 'THEME_VERSION', $theme_ver );
+
 
 /**
  * If you are installing Timber as a Composer dependency in your theme, you'll need this block
@@ -74,8 +76,11 @@ class StarterSite extends Timber\Site {
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'init', array( $this, 'register_menus' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
-		add_filter( 'block_categories', array( $this, 'my_plugin_block_categories' ) );
-		add_action( 'init', array( $this, 'register_blocks' ) );
+
+		error_log("Requiring files...");
+		require_once __DIR__ . '/includes/sthm-block-assets.php';
+		require_once __DIR__ . '/includes/sthm-register-blocks.php';
+		error_log("Requiring done...");
 
 		parent::__construct();
 	}
@@ -283,44 +288,22 @@ class StarterSite extends Timber\Site {
 
 	public function register_scripts( $context )
 	{
-		wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/assets/css/style.css', array(), $theme_ver, 'all' );
+		wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/build/style-index.css', array(), $theme_ver, 'all' );
 
 		wp_enqueue_style( 'fontawesome', get_stylesheet_directory_uri() . '/assets/css/fontawesome.min.css', array(), $theme_ver, 'all' );
 		
-		wp_enqueue_script( 'stylescript', get_stylesheet_directory_uri() . '/assets/js/style.js', array(), $theme_ver, false );
+		wp_enqueue_script( 'uikit', get_stylesheet_directory_uri() . '/assets/js/uikit.min.js', array(), $theme_ver, false );
 
-		wp_enqueue_script( 'script', get_stylesheet_directory_uri() . '/assets/js/script.js', array('stylescript'), $theme_ver, false );
+
+		$index_asset_file = include( get_stylesheet_directory() . '/build/index.asset.php' );
+		wp_register_script( 'script', 
+			get_stylesheet_directory_uri() . '/build/index.js',
+			$asset_file['dependencies'],
+			$asset_file['version']
+		);
+		//wp_enqueue_script( 'script', get_stylesheet_directory_uri() . '/assets/index.js', array('stylescript'), $theme_ver, false );
 	}
 
-	public function my_plugin_block_categories( $categories ) {
-
-	    return array_merge(
-	        $categories,
-	        array(
-	            array(
-	                'slug' => 'sthm',
-	                'title' => 'STHM',
-	                'icon' => 'welcome-add-page'
-	            ),
-	        )
-	    );
-	}
-
-	/**
-	 * Register blocks as defined in the themes' blocks directory, assuming they have an index.php file in their root
-	 * @param  [type] $context [description]
-	 * @return [type]          [description]
-	 */
-	public function register_blocks( $context )
-	{
-
-		foreach ( glob(get_template_directory() . "/blocks/**/index.php") as $filename )
-		{
-		   error_log("Including " . $filename); 
-		   include $filename;
-		}
-
-	}
 
 	/** This Would return 'foo bar!'.
 	 *

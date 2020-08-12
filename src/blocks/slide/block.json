@@ -1,0 +1,21 @@
+{
+	"name": "sthm/slide",
+	"title": "Slide",
+	"category": "sthm",
+	"icon": "format-image",
+	"description": "Slide",
+	"textdomain": "sthm",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+        "mediaId": {
+        	"type": "number",
+        	"default": 0
+        },
+        "mediaUrl": {
+        	"type": "string",
+        	"default": ""
+        }
+    }
+}

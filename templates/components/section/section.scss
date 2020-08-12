@@ -3,6 +3,12 @@
 .uk-section
 {
 
+	@media(min-width: 960px)
+	{
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+
 	&--has-bg-video
 	{
 		display: flex;
@@ -35,6 +41,13 @@
 		{
 			background: map-get($theme-colors, "herooverlay");
 			width: 100%;
+			border: 2px solid map-get($theme-colors, "white");
+			position: relative;
+
+			h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p
+			{
+				text-shadow: 0px 4px 10px map-get($theme-colors, "overlaydark");
+			}
 		}
 	}
 }

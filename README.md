@@ -1,5 +1,5 @@
 [![Chromatic](https://img.shields.io/endpoint?url=https%3A%2F%2Fshields-chromatic-37fphvd5hura.runkit.sh%2F%3Fapp%3D5edfc92b24e57500222e5c09)](https://www.chromatic.com/builds?appId=5edfc92b24e57500222e5c09)
-[![Storybook](https://img.shields.io/badge/-storybook-success)](https://donald-knieriem-temple.github.io/theme-twenty/?path=/story/welcome--to-storybook)
+[![Storybook](https://img.shields.io/badge/-storybook-success)](https://donald-knieriem-temple.github.io/sthmtwenty/)
 [![GitHub release](https://img.shields.io/github/package-json/v/donald-knieriem-temple/theme-twenty)](https://GitHub.com/donald-knieriem-temple/theme-twenty/releases/)
 
 This is a Wordpress Theme Built on Timber with built-in Storybook documentation
